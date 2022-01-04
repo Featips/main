@@ -70,7 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_banned;
+    private $is_banned = false;
 
     /**
      * @ORM\Column(type="boolean")
