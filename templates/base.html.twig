@@ -2,10 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>
+            {% block title %}Welcome!{% endblock %}
+        </title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
+            {{ asset('assets/css/header.css')  }}
+            {{ asset('assets/css/footer.css')  }}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
@@ -13,7 +17,105 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+
     <body>
+        {% block header %}
+            <header>
+                <div class="nav">
+                    <nav>
+                        <div>
+                            <a href="{{ path('home') }}"><img class="FeaTips-Logo" src="{{ asset('assets/img/logotest.JPG')  }}" alt="FeaTips-Logo"/></a>
+                        </div>
+                        <div class="nav-bar">
+
+                            <div class="container">
+                                <div class="lien">
+                                    <ul class="first-nav">
+                                        <li>
+                                            <a href="#">Articles</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Programmes</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Forum</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-connexion-inscription">
+                                    <div class="btn btn-1">Se connecter</div>
+                                    <div class="btn btn-2">S'inscrire</div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        {% endblock %}
+
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <footer>
+                <div class="contenu-footer">
+
+                    <div class="footer-medias">
+                        <ul class="liste-medias">
+                            <li>
+                                <a href="#"><img src="assets/medias/instagram-icon.png" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="assets/medias/facebook-icon.png" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="assets/medias/youtube-icon.png" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="assets/medias/tiktok-icon.png" alt="icones réseaux sociaux"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bloc">
+                        <div class="footer-services">
+                            <span>SERVICES</span>
+                            <ul class="liste-services">
+                                <li>
+                                    <a href="#">Conseils</a>
+                                </li>
+                                <li>
+                                    <a href="#">Programmes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Nos coachs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-infos">
+                            <span>INFORMATIONS PRATIQUES</span>
+                            <ul class="liste-infos">
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="#">Devenir membre Premium</a>
+                                </li>
+                                <li>
+                                    <a href="#">Devenir coach</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mentions légales</a>
+                                </li>
+                                <li>
+                                    <a href="#">Paiement sécurisé</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        {% endblock %}
+
     </body>
+
 </html>
