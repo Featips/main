@@ -58,7 +58,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profil_pic;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", options={"default": "CURRENT_TIMESTAMP"}, nullable=true)
      */
     private $registered_at;
 
@@ -202,8 +202,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setRegisteredAt(\DateTimeImmutable $registered_at): self
     {
-        $this->registered_at = $registered_at;
-
+        $this->registered_at = new DateTime();
+        //$registered_at;
+        //= new DateTime()
         return $this;
     }
 
