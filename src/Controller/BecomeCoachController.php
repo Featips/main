@@ -6,11 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 class BecomeCoachController extends AbstractController
 {
-    #[Route('/become/coach', name: 'become_coach')]
-    public function index(): Response
+    #[Route('/become_coach', name: 'become_coach')]
+    public function index(Request $request,  EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(BecomeCoachType::class);
         $form->handleRequest($request);
