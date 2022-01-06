@@ -51,13 +51,12 @@ header nav {
   border-bottom: solid #444444;
 }
 .FeaTips-Logo {
-  display: flex;
-  margin-top: 0%;
-  margin-left: 100%;
+  margin:20px 0 0 100px;
   height: 80px;
-  width: 110px;
-  top: 6px;
-  left: 89px;
+  width: 150px;
+}
+.FeaTips-Logo img {
+  width: 100%;
 }
 .container {
   display: flex;

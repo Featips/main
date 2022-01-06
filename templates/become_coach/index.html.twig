@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BecomeCoachController!{% endblock %}
+
+{% block body %}
+{{ form_start(BecomeCoach) }}
+        
+        {{ form_row(BecomeCoach.firstname) }}
+        {{ form_row(BecomeCoach.lastname) }}
+        {{ form_row(BecomeCoach.email) }}
+        {{ form_row(BecomeCoach.cv) }}
+        {{ form_row(BecomeCoach.texte) }}
+
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(BecomeCoach) }}
+{% endblock %}

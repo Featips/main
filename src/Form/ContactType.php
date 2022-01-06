@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
 class ContactType extends AbstractType
@@ -24,9 +24,9 @@ class ContactType extends AbstractType
         ])
         ->add('email', EmailType::class, [
             'disabled' => true,
-            'label' => 'Mon email',
+            'label' => 'mail',
         ])
-        ->add('texte', TextType::class,[
+        ->add('texte', TextareaType::class,[
             'label' => 'Votre message'
         ])
         ->add('submit', SubmitType::class,[
@@ -38,7 +38,7 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => ContactType::class,
         ]);
     }
 }

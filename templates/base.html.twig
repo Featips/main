@@ -8,7 +8,8 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-             <link href="{{ asset('assets/css/header.css')  }}" rel="stylesheet">
+            {% block stylesheetsperso %}{% endblock %}
+            <link href="{{ asset('assets/css/header.css')  }}" rel="stylesheet">
             <link href="{{ asset('assets/css/footer.css')  }}" rel="stylesheet">
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -23,8 +24,8 @@
             <header>
                 <div class="nav">
                     <nav>
-                        <div>
-                            <a href="{{ path('home') }}"><img class="FeaTips-Logo" src="{{ asset('assets/img/logotest.JPG')  }}" alt="FeaTips-Logo"/></a>
+                        <div class="FeaTips-Logo" >
+                            <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logotest.JPG')  }}" alt="FeaTips-Logo"/></a>
                         </div>
                         <div class="nav-bar">
 
@@ -32,10 +33,10 @@
                                 <div class="lien">
                                     <ul class="first-nav">
                                         <li>
-                                            <a href="#">Articles</a>
+                                            <a href="{{ path('articles') }}">Articles</a>
                                         </li>
                                         <li>
-                                            <a href="#">Programmes</a>
+                                            <a href="{{ path('programmes') }}">Programmes</a>
                                         </li>
                                         <li>
                                             <a href="#">Forum</a>
@@ -63,16 +64,16 @@
                     <div class="footer-medias">
                         <ul class="liste-medias">
                             <li>
-                                <a href="#"><img src="assets/medias/instagram-icon.png" alt="icones réseaux sociaux"></a>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="icones réseaux sociaux"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="assets/medias/facebook-icon.png" alt="icones réseaux sociaux"></a>
+                                <a href="#"><img src="{{ asset('assets/medias/facebook-icon.png')  }}" alt="icones réseaux sociaux"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="assets/medias/youtube-icon.png" alt="icones réseaux sociaux"></a>
+                                <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="icones réseaux sociaux"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="assets/medias/tiktok-icon.png" alt="icones réseaux sociaux"></a>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="icones réseaux sociaux"></a>
                             </li>
                         </ul>
                     </div>
@@ -81,13 +82,13 @@
                             <span>SERVICES</span>
                             <ul class="liste-services">
                                 <li>
-                                    <a href="#">Conseils</a>
+                                    <a href="{{ path('articles') }}">Articles</a>
                                 </li>
                                 <li>
-                                    <a href="#">Programmes</a>
+                                    <a href="{{ path('programmes') }}">Programmes</a>
                                 </li>
                                 <li>
-                                    <a href="#">Nos coachs</a>
+                                    <a href="{{ path('coachs') }}">Nos coachs</a>
                                 </li>
                             </ul>
                         </div>
@@ -95,13 +96,13 @@
                             <span>INFORMATIONS PRATIQUES</span>
                             <ul class="liste-infos">
                                 <li>
-                                    <a href="#">Contact</a>
+                                    <a href="{{ path('contact_form') }}">Contact</a>
                                 </li>
                                 <li>
                                     <a href="#">Devenir membre Premium</a>
                                 </li>
                                 <li>
-                                    <a href="#">Devenir coach</a>
+                                    <a href="{{ path('') }}">Devenir coach</a>
                                 </li>
                                 <li>
                                     <a href="#">Mentions légales</a>
@@ -118,5 +119,5 @@
         {% endblock %}
 
     </body>
-
+{% block script %}{% endblock %}
 </html>

@@ -1,20 +1,244 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil FeaTips!{% endblock %}
+
+{% block stylesheetsperso %}
+    <link href="{{ asset('assets/css/pageAccueil.css')  }}" rel="stylesheet">
+    <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css')  }}" rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="banniere-accueil">
+        <div class="banniere-accueil-img"></div>
+        <p>Bienvenue sur
+            <span id="brand1">FeaTips.fr</span>.
+            <br>Apprenez à devenir votre propre coach sportif !</p>
+    </div>
+    <main>
+        <section class="carousel">
+            <h2>Articles à la une</h2>
+            <div class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <a href="#"><img src="{{ asset('assets/img/BeachVolley.PNG')  }}" alt="beach-volley"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="splide__slide">
+                            <a href="#"><img src="{{ asset('assets/img/juliacha.JPG')  }}" alt="Climb moutain"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="splide__slide">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/basket_ball.jpg')  }}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="splide__slide">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/manbas.jpg')  }}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="coachs">
+            <h2>Nos coachs</h2>
+            <div class="grid">
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 6">
+                    </div>
+                    <div class="item-content">
+                        <a href="#">
+                            <h4 class="item-content-title"></a>
+                            John Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                        <div class="medias-coachs">
+                            <ul class="liste-medias-coachs">
+                                <li>
+                                    <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach4.jpg')  }}" alt="coach 4">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            Jane Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                    </div>
+                    <div class="medias-coachs">
+                        <ul class="liste-medias-coachs">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets//medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach3.jpg')  }}" alt="coach 3">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            John Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                    </div>
+                    <div class="medias-coachs">
+                        <ul class="liste-medias-coachs">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets//medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach5.webp')  }}" alt="coach 5">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            Jane Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                    </div>
+                    <div class="medias-coachs">
+                        <ul class="liste-medias-coachs">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets//medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach3.jpg')  }}" alt="coach 3">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-content-title">
+                            John Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                    </div>
+                    <div class="medias-coachs">
+                        <ul class="liste-medias-coachs">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets//medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 6">
+                    </div>
+                    <div class="item-content">
+                        <a href="#">
+                            <h4 class="item-content-title"></a>
+                            John Doe
+                        </h4>
+                        <p class="item-content-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel malesuada risus, sit amet pharetra dolor.
+                        </p>
+                    </div>
+                    <div class="medias-coachs">
+                        <ul class="liste-medias-coachs">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets//medias/youtube-icon.png')  }}" alt="Logo Youtube"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-forum">
+            <div class="forum-img"></div>
+            <a href="#">
+                <p>Rejoignez la communauté
+                    <span id="brand2">FeaTips</span>
+                    et entraidez-vous<br>dans notre Forum dédié !</p>
+            </a>
+        </section>
+    </main>
+</body>
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/main/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/main/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block script %}
+<script src="{{ asset('assets/js/splide-3.6.9/dist/js/splide.min.js')  }}"></script>
+<script src="{{ asset('assets/js/script.js')  }}"></script>
 {% endblock %}
