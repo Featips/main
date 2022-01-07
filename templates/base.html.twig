@@ -24,7 +24,7 @@
             <header>
                 <div class="nav">
                     <nav>
-                        <div class="FeaTips-Logo" >
+                        <div class="FeaTips-Logo">
                             <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logotest.JPG')  }}" alt="FeaTips-Logo"/></a>
                         </div>
                         <div class="nav-bar">
@@ -43,11 +43,22 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="btn-connexion-inscription">
-                                    <div class="btn btn-1">Se connecter</div>
-                                    <div class="btn btn-2"><a href="{{ path('app_register') }}">S'inscrire</a></div>
-                                    
-                                </div>
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        bienvenue {{ app.user.username }}, 
+                                        <div class="btn btn-1"><a href="{{ path('app_logout') }}">Logout</a> </div>
+                                    </div>
+
+                                {% else %}
+
+                                    <div class="btn-connexion-inscription">
+                                        <div class="btn btn-1"><a href="{{ path('app_login') }}"> Se connecter</a></div>
+                                        <div class="btn btn-2">
+                                            <a href="{{ path('app_register') }}">S'inscrire</a>
+                                        </div>
+
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     </nav>
@@ -119,5 +130,5 @@
         {% endblock %}
 
     </body>
-{% block script %}{% endblock %}
+    {% block script %}{% endblock %}
 </html>

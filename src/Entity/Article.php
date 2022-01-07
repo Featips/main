@@ -59,10 +59,16 @@ class Article
      */
     private $program;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="articles")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->program = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -186,6 +192,30 @@ class Article
     public function removeProgram(Program $program): self
     {
         $this->program->removeElement($program);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        $this->user->removeElement($user);
 
         return $this;
     }
