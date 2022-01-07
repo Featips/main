@@ -12,49 +12,28 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-
 
 class RegistrationFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options) : void
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 30
-                    ]), 
-                    'attr' => [
-                        'placeholder' => 'Votre prénom'
-                    ]
+            ->add('firstname', TextType::class,[
+                'label' => 'prénom',
             ])
-            ->add('lastname', TextType::class, [
-                'label' => 'Nom',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 30
-                    ]), 
-                    'attr' => [
-                        'placeholder' => 'Votre nom'
-                    ]
+            ->add('lastname', TextType::class,[
+                'label' => 'nom',
             ])
-            ->add('username', TextType::class, [
-                'label' => 'Surnom',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 30
-                    ]), 
-                    'attr' => [
-                        'placeholder' => 'Votre surnom'
-                    ]
+            ->add('username', TextType::class,[
+                'label' => 'surnom',
             ])
-            ->add('email', EmailType::class, [
-                'label' => 'Email',
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre email'
-                ]
+            ->add('agreeTerms', CheckboxType::class, [
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'You should agree to our terms.',
+                    ]),
+                ],
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -73,19 +52,10 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
-            
-            ;
+        ;
     }
 
-    public function configureOptions(OptionsResolver $resolver) : void
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,

@@ -48,34 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $profil_pic;
-
-    /**
-     * @ORM\Column(type="datetime_immutable", options={"default": "CURRENT_TIMESTAMP"}, nullable=true)
-     */
-    private $registered_at;
-
-    /**
      * @ORM\Column(type="boolean")
      */
-    private $is_enabled;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $is_banned = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isVerified = false;
+    private $is_premium = false;
 
     public function getId(): ?int
     {
@@ -171,75 +146,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getIsPremium(): ?bool
     {
-        return $this->email;
+        return $this->is_premium;
     }
 
-    public function setEmail(string $email): self
+    public function setIsPremium(bool $is_premium): self
     {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getProfilPic(): ?string
-    {
-        return $this->profil_pic;
-    }
-
-    public function setProfilPic(?string $profil_pic): self
-    {
-        $this->profil_pic = $profil_pic;
-
-        return $this;
-    }
-
-    public function getRegisteredAt(): ?\DateTimeImmutable
-    {
-        return $this->registered_at;
-    }
-
-    public function setRegisteredAt(\DateTimeImmutable $registered_at): self
-    {
-        $this->registered_at = new DateTime();
-        //$registered_at;
-        //= new DateTime()
-        return $this;
-    }
-
-    public function getIsEnabled(): ?bool
-    {
-        return $this->is_enabled;
-    }
-
-    public function setIsEnabled(bool $is_enabled): self
-    {
-        $this->is_enabled = $is_enabled;
-
-        return $this;
-    }
-
-    public function getIsBanned(): ?bool
-    {
-        return $this->is_banned;
-    }
-
-    public function setIsBanned(bool $is_banned): self
-    {
-        $this->is_banned = $is_banned;
-
-        return $this;
-    }
-
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
+        $this->is_premium = $is_premium;
 
         return $this;
     }
