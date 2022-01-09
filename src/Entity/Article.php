@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,28 @@ class Article
      * @ORM\Column(type="datetime_immutable")
      */
     private $created_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="articles")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Program::class, inversedBy="articles")
+     */
+    private $program;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="articles")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->category = new ArrayCollection();
+        $this->program = new ArrayCollection();
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +144,78 @@ class Article
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->category->contains($category)) {
+            $this->category[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->category->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Program[]
+     */
+    public function getProgram(): Collection
+    {
+        return $this->program;
+    }
+
+    public function addProgram(Program $program): self
+    {
+        if (!$this->program->contains($program)) {
+            $this->program[] = $program;
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): self
+    {
+        $this->program->removeElement($program);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        $this->user->removeElement($user);
 
         return $this;
     }

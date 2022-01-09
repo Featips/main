@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rejoignez nous !{% endblock %}
+
+{% block body %}
+    <h2>rejoingez note équipe
+    </h2>
+    {{ form_start(BecomeCoach) }}
+
+    {{ form_row(BecomeCoach.firstname) }}
+    {{ form_row(BecomeCoach.lastname) }}
+    {{ form_row(BecomeCoach.email) }}
+    {{ form_row(BecomeCoach.cv) }}
+    {{ form_row(BecomeCoach.texte) }}
+
+    <button type="submit" class="btn">Evoyer</button>
+    {{ form_end(BecomeCoach) }}
+{% endblock %}

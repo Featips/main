@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FeaTips - Contact{% endblock %}
+
+{% block body %}
+
+    <h2>contactez nous !</h2>
+
+    {% if app.user %}
+        {{app.user.firstname}}
+        <br>
+        {{app.user.lastname}}
+        <br>
+        {{app.user.email}}
+    {% else %}
+        {{ form_start(contactForm) }}
+        {{ form_row(contactForm.firstname) }}
+        {{ form_row(contactForm.lastname) }}
+        {{ form_row(contactForm.email) }}
+    {% endif %}
+        {{ form_row(contactForm.texte) }}
+
+        <button type="submit" class="btn">Envoyer
+        </button>
+        {{ form_end(contactForm) }}
+
+{% endblock %}
