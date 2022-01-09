@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap");
 
+
 body {
   margin: 0;
   padding: 0;
@@ -14,13 +15,13 @@ body {
 .banniere-accueil {
   position: relative;
   display: inline-block;
+  z-index:2;
 }
 .banniere-accueil-img {
   width: 100%;
   height: 440px;
-  background: url("../../assets/img/headerPageAccueil.jpg") center;
+  background: url("../assets/imgFeaTips/headerPageAccueil.jpg") center;
   background-size: cover;
-  box-shadow: 0px 2px 5px #444444;
   position: block;
 }
 .banniere-accueil p {
@@ -49,8 +50,6 @@ body {
   padding-left: 30px;
   padding-bottom: 10px;
   background-color: rgba(44, 44, 44);
-  box-shadow: 0px 2px 5px #444444;
-  border-radius: 10px;
 }
 .carousel h2 {
   text-align: center;
@@ -72,8 +71,6 @@ body {
   width: 350px;
   height: 350px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px #444444;
 }
 .description-article {
   position: absolute;
@@ -99,7 +96,7 @@ body {
 }
 .authors {
   font-family: "Roboto", sans-serif;
-  color: #444444;
+  color: #4279e5;
   font-size: 15px;
 }
 .splide__pagination {
@@ -134,8 +131,6 @@ section:nth-child(2) {
   width: 100%;
   height: auto;
   background: white;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
 }
 
@@ -143,7 +138,7 @@ section:nth-child(2) {
   display: flex;
   flex: 1;
   max-height: auto;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: hidden;
   padding-top: 20px;
   padding-bottom: 15px;
@@ -152,37 +147,41 @@ section:nth-child(2) {
 .item {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    0deg,
-    rgba(66, 121, 229, 1) 35%,
-    rgba(68, 68, 68, 1) 100%
-  );
-  border-radius: 10px;
+  background: #4279e5;
   flex: 1;
   width: 250px;
   height: 400px;
-  padding: 2%;
+  padding: 5px 10px;
   margin: 0 20px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
-
 .item-image img {
   margin-top: 15px;
   max-width: 150px;
   clip-path: ellipse(50% 50%) !important;
   filter: saturate(110%);
 }
+.item-content{
+  width: 250px;
+  background-color: #444444;
+  padding: 0px 10px;
+}
 .item-content-title {
   font-family: "Francois One", Impact, Haettenschweiler, "Arial Narrow Bold",
     sans-serif;
   letter-spacing: 2px;
+  padding-top: 5px;
+}
+.name{
+  color:#4279e5;
 }
 .item-content-description {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
 }
 .medias-coachs {
   width: 280px;
@@ -199,6 +198,43 @@ section:nth-child(2) {
   width: 20px;
   filter: brightness(200%);
 }
+/* Scrollbar sous chrome, safari */
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+/* scroll bar */
+::-webkit-scrollbar-track-piece {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb:horizontal{
+    height: 30px;
+    background-color:#4279e5;
+}
+
+/* Scrollbar sous Firefox */
+.scroller-custom {
+    scrollbar-width: thin;
+    scrollbar-color: #4279e5 #fcf9f9;
+    border-radius: 6px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #4279e5;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: #fff;
+}
+.scroller {
+
+    height:50vh;
+    overflow-x:scroll;
+    scrollbar-width:thin;
+  }
 
 /* bannière call to action forum */
 .cta-forum {
@@ -212,7 +248,6 @@ section:nth-child(2) {
   height: 350px;
   background: url("../assets/imgFeaTips/imgfooter.jpg") center;
   background-size: cover;
-  box-shadow: 0px 2px 5px #444444;
   display: block;
 }
 .cta-forum a {
@@ -395,7 +430,6 @@ section:nth-child(2) {
     width: 15px;
   }
     /* banniere cta forum */
-}
 .cta-forum {
   margin-top: 20px;
 }
@@ -407,4 +441,4 @@ section:nth-child(2) {
   letter-spacing: 2px;
   line-height: 2em;
 }
-
+}
