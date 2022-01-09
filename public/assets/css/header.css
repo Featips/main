@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @font-face {
   font-family: "Roboto Regular";
-  src:  url("assets/fonts/Roboto-Regular.ttf") format("ttf"),
- }
+  src: url("assets/fonts/Roboto-Regular.ttf") format("ttf");
+}
 @import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap");
 body {
   margin: 0;
@@ -10,12 +10,31 @@ body {
 header {
   padding: 0;
   font-family: "Roboto", sans-serif;
-  height: 75px;
+  height: auto;
   width: 100%;
 }
-label, #toggle
-{
-    display: none;
+.logo-nav {
+  margin-top: 5px;
+  margin-left: 40px;
+}
+.featips-logo {
+  display: flex;
+  margin-top: 0%;
+  width: 130px;
+  top: 6px;
+  left: 89px;
+}
+.logo-nav-responsive {
+  display: none;
+  margin-top: 5px;
+  margin-left: 40%;
+  width: 60px;
+  z-index: 100;
+}
+.top-nav-root {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: solid #444444;
 }
 .first-nav {
   display: flex;
@@ -30,7 +49,6 @@ label, #toggle
   justify-content: space-between;
   color: #000;
   margin-right: 50px;
-  /* margin-left: 75px; */
   padding-bottom: 5px;
   font-family: "Roboto" sans-serif;
   font-style: normal;
@@ -38,25 +56,10 @@ label, #toggle
   font-size: 18px;
   line-height: 20px;
   padding: 5px 10px;
-  border-bottom: #444444;
 }
-.first-nav li a:hover{
-  border-radius: 2px;
-background-color: #4279E5;
-color:white;
-}
-header nav {
-  display: flex;
-  align-items: center;
-  border-bottom: solid #444444;
-}
-.FeaTips-Logo {
-  margin:20px 0 0 100px;
-  height: 80px;
-  width: 150px;
-}
-.FeaTips-Logo img {
-  width: 100%;
+.first-nav li a:hover {
+  background-color: #4279e5;
+  color: white;
 }
 .container {
   display: flex;
@@ -65,7 +68,6 @@ header nav {
 }
 .nav-bar {
   display: flex;
-
   width: 100%;
 }
 .lien {
@@ -76,73 +78,278 @@ header nav {
   margin-right: 50px;
   justify-content: flex-end;
 }
-.btn-1{
-  margin-right:10px;
+.btn-1 {
+  margin-right: 10px;
 }
-.btn{
+.btn {
   width: 110px;
   margin: 10px;
-  padding:10px;
-  text-align:center;
+  padding: 5px 2px;
+  text-align: center;
   cursor: pointer;
-  transition: 0,5s;
+  transition: 0, 5s;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   font-style: bold;
-  color: white;
-  border-radius: 50px;
-  background-size: 200%;
 }
-.btn-1{
-  background:white;
-  color:#4279E5;
-  
+.btn-1 {
+  background: white;
+  color: #4279e5;
 }
-.btn-1:hover{
-  color:#444444;
+.btn-1:hover {
+  color: #444444;
   font-weight: bolder;
 }
-.btn-2{
-  background-image: linear-gradient(
-    to right, #444444, #4279E5, #444444);
+.btn-2,
+.btn-account {
+  color: #4279e5;
+  background-color: white;
+  border: solid 2px #4279e5;
 }
-.btn-2:hover{
-  background-position: right;
-  box-shadow: 0 0 20px #4279E5;
+.btn-2:hover {
   font-weight: bolder;
 }
-@media all and (max-width: 991px)
-{
-    .nav
-    {
-        height: 60px;
-    }
- 
-    nav .container 
-    {
-        display: none;
-        flex-direction: column;
-        background: #48435C;
-        height: 220px;
-    }
- 
-    nav .container a {
-        width: 50%;
-    }
- 
-    label 
-    {
-        width: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        font-size: 40px;
-        color: white;
-        cursor: pointer;
-    }
- 
-    #toggle:checked + .container {
-        display: flex;
-    }
+.btn-account-on {
+  display: none;
+}
+/* hide responsive menu */
+#topnav_hamburger_icon,
+#topnav_responsive_menu {
+  display: none;
+}
+#my-account {
+  display: none;
+}
+
+@media screen and (max-width: 1180px) {
+  .top-nav-responsive-full {
+    display: flex;
+    align-items: center;
+  }
+  .logo-nav-responsive {
+    display: flex;
+    margin-left: 40%;
+  }
+  .featips-logo {
+    margin-left: 0;
+  }
+  #my-account {
+    display: flex;
+    position: absolute;
+    right: 20%;
+  }
+  .my-account-icon {
+    position: absolute;
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+  }
+  .my-account-icon:hover ul,
+  .my-account-icon:focus ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #my-account-items {
+    position: relative;
+  }
+  #my-account-items ul {
+    overflow: visible;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 28px;
+    margin-left: -2px;
+    padding-left: 1px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    text-align: center;
+    background-color: #fff;
+    border: solid 1.5px #444444;
+    /* IMPOSSIBLE D'AFFICHER LE MENU ACCOUNT */
+    opacity:0;
+    visibility: hidden;
+    transition:opacity 200ms ease-in-out;
+  }
+
+  #my-account-items li {
+    list-style-type: none;
+    transition: background-color 200ms ease-in-out;
+  }
+  #my-account-items li:hover,
+  #my-account-items li:focus {
+    background-color: #444444;
+    color: white;
+  }
+  #my-account-items li a {
+    text-decoration: none;
+    color: #444444;
+  }
+  /* hide classic menu */
+  #topnav_menu {
+    display: none;
+  }
+
+  /* position home link at left and hamburger at right */
+  #home_link {
+    flex-grow: 1;
+  }
+
+  /* disable horizontal scrolling  */
+  #root {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* show responsive menu and position at the left of the screen */
+  #topnav_responsive_menu {
+    display: block;
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    height: 100vh;
+
+    z-index: 99;
+
+    transform-origin: 0% 0%;
+    transform: translate(0, -200%);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  #topnav_responsive_menu ul {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    margin: -1px;
+    left: 0;
+    top: 0;
+
+    min-width: 25vw;
+    height: 100vh;
+    padding: 60px 0 0;
+
+    text-align: center;
+
+    background: #444444;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #topnav_responsive_menu li {
+    padding: 20px 20px;
+  }
+
+  #topnav_responsive_menu a {
+    white-space: nowrap;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* And let's slide it in from the right */
+  #topnav_responsive_menu.open {
+    transform: none;
+    position: fixed;
+  }
+
+  /* ******************** HAMBURGER ICON ******************** */
+  /* define size and position of the hamburger link */
+  #topnav_hamburger_icon {
+    display: flex;
+    position: relative;
+    margin-left: 16px;
+    width: 33px;
+    height: 28px;
+
+    z-index: 100;
+
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  /* define the style (size, color, position, animation, ...) of the 3 spans */
+  #topnav_hamburger_icon span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    margin-bottom: 5px;
+
+    background: #ededed;
+    border-radius: 3px;
+
+    z-index: 100;
+
+    opacity: 1;
+    left: 0;
+
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  /* set the 3 spans position to look like a hamburger */
+  #topnav_hamburger_icon span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+  }
+  #topnav_hamburger_icon span:nth-child(2) {
+    top: 12px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  #topnav_hamburger_icon span:nth-child(3) {
+    top: 24px;
+    -webkit-transform-origin: left bottom;
+    -moz-transform-origin: left bottom;
+    -o-transform-origin: left bottom;
+    transform-origin: left bottom;
+  }
+
+  /* change color when opening the menu */
+  #topnav_hamburger_icon.open span {
+    background: #333;
+  }
+
+  /* the first span rotates 45° \ */
+  #topnav_hamburger_icon.open span:nth-child(1) {
+    width: 110%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  /* the second span disappears */
+  #topnav_hamburger_icon.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  /* the last span rotates -45° / */
+  #topnav_hamburger_icon.open span:nth-child(3) {
+    width: 110%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
 }
