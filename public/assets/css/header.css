@@ -13,10 +13,10 @@ header {
   height: 75px;
   width: 100%;
 }
-/* .nav {
-  border-bottom: #444444;
-  padding: bottom 10px top 10px;
-} */
+label, #toggle
+{
+    display: none;
+}
 .first-nav {
   display: flex;
   list-style: none;
@@ -110,4 +110,39 @@ header nav {
   background-position: right;
   box-shadow: 0 0 20px #4279E5;
   font-weight: bolder;
+}
+@media all and (max-width: 991px)
+{
+    .nav
+    {
+        height: 60px;
+    }
+ 
+    nav .container 
+    {
+        display: none;
+        flex-direction: column;
+        background: #48435C;
+        height: 220px;
+    }
+ 
+    nav .container a {
+        width: 50%;
+    }
+ 
+    label 
+    {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+ 
+    #toggle:checked + .container {
+        display: flex;
+    }
 }
