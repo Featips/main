@@ -8,10 +8,10 @@ use App\Entity\ForumPost;
 use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\MakerBundle\Doctrine\RelationManyToMany;
-use Symfony\Component\BrowserKit\Request;
 
 class ForumController extends AbstractController
 {
@@ -58,7 +58,7 @@ class ForumController extends AbstractController
     }   
 
     #[Route('/forum/{category}/{slug}', name: 'topic')]
-    public function topic($category, $slug, Request $request, EntityManagerInterface $entityManager ) : Response
+    public function topic($category, $slug, Request $request ) : Response
     {
         $topic = $this->entityManager->getRepository(ForumTopic::class)->findOneBySlug($slug);
         
@@ -70,8 +70,8 @@ class ForumController extends AbstractController
             $form->handleRequest($request);
             //add
 
-            $posts = $this->entityManager->getRepository(ForumPost::class)->findOneBySlug($slug);
-            //dd($posts);
+            $posts = $this->entityManager->getRepository(ForumPost::class)->findBy(['topic' => $topic->getId()]);
+            // dd($posts);
             return $this->render('forum/topic.html.twig', [
                 'topic' => $topic, 'posts' => $posts,
                 'Postform' => $form->createView()
@@ -80,7 +80,7 @@ class ForumController extends AbstractController
 
         }
     }
-    #[Route('/forum/{category}/{topic}}/{id}', name: 'post')]
+    #[Route('/forum/{category}/{topic}/{id}', name: 'post')]
     public function post($id, Request $request) : Response
     {
         
