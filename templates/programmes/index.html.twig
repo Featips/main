@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProgrammesController!{% endblock %}
-
+{% block stylesheetsperso %}
+    <link href="{{ asset('assets/css/programmes.css')  }}" rel="stylesheet">
+    <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css')  }}" rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block body %}
- <div>
-    <img src="../imgFeaTips/img/woman-g2c3b5e81d_1920.jpg" alt="Woman doing sports" />
-    <!-- qu'on mettra dans le css en background image -->
+ <div class="intro-programmes">
+ <div class="banniere-programmes-img"></div>
     <h1>Les programmes proposés par nos coachs</h1>
     <h2>
       Description de la section en une ou deux phrases. Description de la
@@ -17,14 +20,14 @@
     <div class="splide">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide"><a href="#"><img src="../imgFeaTips/img/BeachVolley.PNG" alt="beach-volley" />
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/BeachVolley.png')  }}" alt="beach-volley" />
               <div class="description-article">
                 <p class="title-article">Titre de l'article</p>
                 <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
                 <p class="authors">Auteurs</p>
               </div>
             </a></li>
-          <li class="splide__slide"><a href="#"><img src="../imgFeaTips/img/juliacha.JPG" alt="Climb moutain" />
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/juliacha.jpg')  }}" alt="Climb moutain" />
               <div class="description-article">
                 <p class="title-article">Titre de l'article</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
@@ -32,7 +35,7 @@
               </div>
             </a></li>
           <li class="splide__slide"><a href="#">
-              <img src="../imgFeaTips/img/basketball-court-g55e624258_1920.jpg" alt="basketball-court" />
+              <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
               <div class="description-article">
                 <p class="title-article">Titre de l'article</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
@@ -40,7 +43,7 @@
               </div>
             </a></li>
           <li class="splide__slide"><a href="#">
-              <img src="../imgFeaTips/img/basketball-court-g55e624258_1920.jpg" alt="basketball-court" />
+              <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
               <div class="description-article">
                 <p class="title-article">Titre de l'article</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
@@ -51,6 +54,9 @@
       </div>
     </div>
   </section>
-  <script src="../splide-3.6.9/dist/js/splide.min.js"></script>
-    <script src="../JS/script.js"></script>
+{% endblock %}
+
+{% block script %}
+<script src="{{ asset('assets/js/splide-3.6.9/dist/js/splide.min.js')  }}"></script>
+<script src="{{ asset('assets/js/script.js')  }}"></script>
 {% endblock %}
