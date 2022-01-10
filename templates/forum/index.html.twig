@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum Featips{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Hello! ✅</h1>
+
+    
+    <ul>
+        {% for category in categories %}
+
+        <li><a href="{{ path('forum', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
+        
+        {% endfor %}
+
+    </ul>
+</div>
+{% endblock %}
+
+

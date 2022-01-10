@@ -5,7 +5,7 @@
 {% block body %}
 
     <h2>contactez nous !</h2>
-
+{{ form_start(contactForm) }}
     {% if app.user %}
         {{app.user.firstname}}
         <br>
@@ -13,7 +13,7 @@
         <br>
         {{app.user.email}}
     {% else %}
-        {{ form_start(contactForm) }}
+        
         {{ form_row(contactForm.firstname) }}
         {{ form_row(contactForm.lastname) }}
         {{ form_row(contactForm.email) }}
