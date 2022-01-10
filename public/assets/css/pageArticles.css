@@ -7,6 +7,7 @@ body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   justify-content: space-evenly;
+  position:absolute;
 }
 
 /* bannière d'accueil */
@@ -18,7 +19,7 @@ body {
 .banniere-article-img {
   width: 100%;
   height: 440px;
-  background: url("../assets/imgFeaTips/imgArticle.jpg") center;
+  background: url("../img/imgarticle.jpg") center;
   background-size: cover;
 }
 /* Création du filtre */
@@ -57,7 +58,6 @@ body {
 .list-sport, .list-coachs{
   display: none;
   background-color: #fff;
-  box-shadow: 0 1px 2px #ccc;
   position:absolute;
   width:100%;
   z-index:1000;
@@ -77,10 +77,15 @@ body {
   color:white;
   background-color: #444444;
 }
+
 /* slider articles à la une */
+main{
+  display:flex;
+  justify-content: center;
+}
 .carousel {
-  width: 90%;
-  margin: 2%;
+  width: 70vw;
+  margin: 5%;
   padding-top: 20px;
   padding-left: 30px;
   padding-bottom: 10px;
@@ -106,7 +111,10 @@ body {
   width: 350px;
   height: 350px;
   object-fit: cover;
-  box-shadow: 0px 2px 5px #444444;
+}
+.splide__slide ul li {
+  margin-right:10px;
+  margin-left:10px;
 }
 .description-article {
   position: absolute;
@@ -165,43 +173,9 @@ li{
 	position:relative;
 }
 
-/* bannière call to action forum */
-.cta-forum {
-  margin-top: 70px;
-  width: 100%;
-  position: relative;
-  display: inline-block;
-}
-.forum-img {
-  width: 100%;
-  height: 350px;
-  background: url("../assets/imgFeaTips/imgfooter.jpg") center;
-  background-size: cover;
-  box-shadow: 0px 2px 5px #444444;
-  display: block;
-}
-.cta-forum a {
-  text-decoration-style: none;
-}
-.cta-forum a p {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translate(0, -50%);
-  text-align: center;
-  font-family: "Francois One", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  letter-spacing: 5px;
-  color: #fff;
-  line-height: 3em;
-}
-#brand2 {
-  color: #4279e5;
-  text-shadow: 0 0 10px #4279e5;
-}
 /* media queries */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* responsive banniere */
   .banniere-accueil-img {
     height: 300px;
   }
@@ -210,6 +184,9 @@ li{
     letter-spacing: 3px;
     line-height: 3em;
   }
+  /* responsive filter */
+
+  /* responsive carousel */
   .carousel {
     padding: 2%;
   }
@@ -241,21 +218,11 @@ li{
   .authors {
     font-size: 1px;
   }
-  /* banniere cta forum */
-  .cta-forum {
-    margin-top: 40px;
-  }
-  .forum-img {
-    height: 250px;
-  }
-  .cta-forum a p {
-    font-size: 18px;
-    letter-spacing: 3px;
-    line-height: 2em;
-  }
 }
 
 @media screen and (max-width: 767px) {
+
+/* responsive banniere */
   .banniere-accueil-img {
     height: 150px;
   }
@@ -264,6 +231,10 @@ li{
     letter-spacing: 2px;
     line-height: 2em;
   }
+
+/* responsive filter */
+
+/* responsive carousel */
   .carousel {
     padding: 2%;
   }
@@ -296,17 +267,5 @@ li{
   }
   .authors {
     font-size: 1px;
-  }
-  /* banniere cta forum */
-  .cta-forum {
-    margin-top: 20px;
-  }
-  .forum-img {
-    height: 150px;
-  }
-  .cta-forum a p {
-    font-size: 14px;
-    letter-spacing: 2px;
-    line-height: 2em;
   }
 }
