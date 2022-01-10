@@ -39,11 +39,8 @@ class ForumTopic
      */
     private $is_locked;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=ForumCategory::class, inversedBy="forumTopics")
-     */
-    private $category;
-
+   
+   
     /**
      * @ORM\OneToMany(targetEntity=ForumPost::class, mappedBy="topic")
      */
@@ -53,6 +50,11 @@ class ForumTopic
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ForumCategory::class, inversedBy="forumTopics")
+     */
+    private $category;
 
     public function __construct()
     {
@@ -127,31 +129,6 @@ class ForumTopic
     }
 
 
-    // un topic dans plusieurs category, on devrais avoir un topic que dans une category mais je vais justifier en disant que ça peut êter amener à changer dans le futur.
-    /**
-     * @return Collection|ForumCategory[]
-     */
-    public function getCategory(): Collection
-    {
-        return $this->category;
-    }
-
-    public function addCategory(ForumCategory $category): self
-    {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(ForumCategory $category): self
-    {
-        $this->category->removeElement($category);
-
-        return $this;
-    }
-
     /**
      * @return Collection|ForumPost[]
      */
@@ -190,6 +167,18 @@ class ForumTopic
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getCategory(): ?ForumCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?ForumCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

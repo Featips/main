@@ -5,8 +5,28 @@
 {% block body %}
 <div class="example-wrapper">
     <h2>Ici on parle de {{ category.name }}</h2>
-
+   
+    <ul>
+    {% for topic in topics %}
+        <h3> <a href="{{ path('topic', {'slug' : topic.slug, 'category' : category.slug }  ) }} ">{{ topic.title }}</a> </h3>
+    {% endfor %}
+    </ul>
     
+    <div>
+   
+{#    
+    <button>nouveau</button>
+    
+    {{ form_start(ForumTopic) }}
+    {{ form_row(ForumTopic.title) }}
+    {{ form_row(ForumTopic.content) }}
+    {{ form_row(ForumTopic.post) }}
+     <button type="submit" class="btn">Evoyer</button>
+    {{ form_end(ForumTopic) }}
+    </div> #}
+    
+
+
     {# <ul>
         {% for category in categories %}
 

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{category.name}}{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h2>{{ post.id }}</h2>
+
+    <ul>
+    {% for posts in post %}
+        <li>{{ post.content }}</li>
+    {% endfor %}
+    </ul>
+    
+
+    
+
+
+    {# <ul>
+        {% for category in categories %}
+
+        <li><a href="{{ path('forum', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
+        
+        {% endfor %}
+
+    </ul> #}
+</div>
+{% endblock %}

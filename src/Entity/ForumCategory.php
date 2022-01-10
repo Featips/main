@@ -29,15 +29,16 @@ class ForumCategory
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=ForumTopic::class, mappedBy="category")
-     */
-    private $forumTopics;
-
+  
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ForumTopic::class, mappedBy="category")
+     */
+    private $forumTopics;
 
     public function __construct()
     {
@@ -73,6 +74,19 @@ class ForumCategory
         return $this;
     }
 
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
     /**
      * @return Collection|ForumTopic[]
      */
@@ -85,7 +99,7 @@ class ForumCategory
     {
         if (!$this->forumTopics->contains($forumTopic)) {
             $this->forumTopics[] = $forumTopic;
-            $forumTopic->addCategory($this);
+            $forumTopic->setCategory($this);
         }
 
         return $this;
@@ -94,20 +108,11 @@ class ForumCategory
     public function removeForumTopic(ForumTopic $forumTopic): self
     {
         if ($this->forumTopics->removeElement($forumTopic)) {
-            $forumTopic->removeCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($forumTopic->getCategory() === $this) {
+                $forumTopic->setCategory(null);
+            }
         }
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

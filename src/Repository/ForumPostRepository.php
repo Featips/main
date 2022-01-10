@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\ForumPost;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 /**
  * @method ForumPost|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +16,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ForumPostRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    private $entityManager;
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
         parent::__construct($registry, ForumPost::class);
+        $this->entityManager = $entityManager;
     }
 
     // /**
@@ -32,6 +37,7 @@ class ForumPostRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
+
         ;
     }
     */
@@ -47,4 +53,44 @@ class ForumPostRepository extends ServiceEntityRepository
         ;
     }
     */
+     
+    // public function findByMyCategory()
+    // {
+    //    $entityManager=$this->getEntityManager();
+    //     $dql = 'SELECT ft.id FROM forum_topic ft INNER JOIN forum_topic_forum_category ON forum_topic.id = forum_topic_forum_category.forum_topic_id WHERE forum_topic_id = 1';
+
+    //     $query=$this->getEntityManager()->createQuery($dql);
+
+    //     return $query->execute();
+
+       /*$query = $entityManager->createQuery( 'SELECT ft.id FROM forum_topic ft INNER JOIN forum_topic_forum_category ON forum_topic.id = forum_topic_forum_category.forum_topic_id WHERE forum_topic_id = 1' );
+
+       return $query->getResult();*/
+       /*return $this->createQueryBuilder('f')
+       ->select('*')
+       ->from('forum_topic_forum_category', 'ftc')
+       ->from('forum_topic', 'ft')
+       ->where('ftc.forum_topic_id = ft.id');*/
+            
+   // }
+   
+    // SELECT * FROM forum_topic INNER JOIN forum_topic_forum_category ON forum_topic.id = forum_topic_forum_category.forum_topic_id WHERE forum_topic_id = 1; 
+
+
+    /*
+    public function findByCategory($value)
+    {
+        return $this->createQueryBuilder('cat')
+            ->andWhere('cat.id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('cat.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            
+        ;
+    }
+    */
+    
+
 }
