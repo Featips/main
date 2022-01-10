@@ -4,17 +4,22 @@
 body {
   margin: 0;
   padding: 0;
+  width:100%;
+  display:flex;
+  justify-content: center;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   justify-content: space-evenly;
-  position:absolute;
+  flex-wrap:wrap;
+  /* position:absolute; */
 }
 
 /* bannière d'accueil */
 .banniere-article {
   display: flex;
-  position: relative;
+  /* position: relative; */
   width:100%;
+  position:relative;
 }
 .banniere-article-img {
   width: 100%;
@@ -26,11 +31,11 @@ body {
 .filter-article{
   display: flex;
   flex-direction:column;
-  width: 25%;
+  width: 30vw;
   list-style: none;  
   position: absolute;
-  right: 5%;
-  bottom: 2%;
+  right: 20px;
+  bottom: 3px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 15px;
   letter-spacing: 1px;
@@ -40,6 +45,7 @@ body {
 .filter-all-articles{
   list-style-type: none;
   display:flex;
+
 }
 .filter-sport, .filter-coachs {
   margin-top: 0;
@@ -84,7 +90,8 @@ main{
   justify-content: center;
 }
 .carousel {
-  width: 70vw;
+  justify-content: center;
+  width: 80vw;
   margin: 5%;
   padding-top: 20px;
   padding-left: 30px;
@@ -111,6 +118,9 @@ main{
   width: 350px;
   height: 350px;
   object-fit: cover;
+}
+.splide__slide ul{
+  justify-content: center;
 }
 .splide__slide ul li {
   margin-right:10px;
@@ -185,6 +195,35 @@ li{
     line-height: 3em;
   }
   /* responsive filter */
+.filter-article{
+  width:50vw;
+}
+/* .filter-sport a:hover, .filter-sport a:focus, .filter-coachs a:hover, .filter-coachsa:focus{
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bolder;
+}
+.list-sport, .list-coachs{
+  display: none;
+  background-color: #fff;
+  position:absolute;
+  width:100%;
+  z-index:1000;
+}
+.filter-sport a:hover .list-sport, .filter-sport a:focus .list-sport, .filter-coachs a:hover .list-coachs, .filter-coachs a:focus .list-coachs{
+ display:block;
+}
+.list-sport li, .list-coachs li{
+  width:100%;
+  text-align:left;
+}
+.list-sport a, .list-coachs a {
+  padding:10px;
+  color:#444444;
+}
+.list-sport a:hover, .list-coachs a:hover{
+  color:white;
+  background-color: #444444;
+} */
 
   /* responsive carousel */
   .carousel {

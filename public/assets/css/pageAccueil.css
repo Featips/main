@@ -9,6 +9,7 @@ body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   justify-content: space-evenly;
+  width:100%;
 }
 
 /* bannière d'accueil */
@@ -16,11 +17,12 @@ body {
   position: relative;
   display: inline-block;
   z-index:2;
+  width:100%;
 }
 .banniere-accueil-img {
   width: 100%;
   height: 440px;
-  background: url("../img/headerPageAccueil.jpg") center;
+  background: url("../img/headerPageaccueil.jpg") center;
   background-size: cover;
   position: block;
 }
@@ -43,9 +45,14 @@ body {
 }
 
 /* slider articles à la une */
+main{
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
 .carousel {
   width: 90%;
-  margin: 5%;
+  margin: 5vh;
   padding-top: 20px;
   padding-left: 30px;
   padding-bottom: 10px;
@@ -114,6 +121,7 @@ body {
 }
 
 /* Slider Coachs */
+
 .coachs h2 {
   text-align: center;
   text-transform: uppercase;
@@ -125,7 +133,7 @@ body {
 
 section:nth-child(2) {
   display: flex;
-  margin-top: 50px;
+  margin-bottom:5vh;
   flex-direction: column;
   align-self: center;
   justify-content: space-evenly;
@@ -139,7 +147,6 @@ section:nth-child(2) {
   display: flex;
   flex: 1;
   max-height: auto;
-  /* overflow-x: scroll; */
   overflow-y: hidden;
   padding-top: 20px;
   padding-bottom: 15px;
@@ -167,7 +174,7 @@ section:nth-child(2) {
   filter: saturate(110%);
 }
 .item-content{
-  width: 250px;
+  width: 100%;
   background-color: #444444;
   padding: 0px 10px;
 }
@@ -247,7 +254,7 @@ section:nth-child(2) {
 .forum-img {
   width: 100%;
   height: 350px;
-  background: url("../assets/imgFeaTips/imgfooter.jpg") center;
+  background: url("../img/imgfooter.jpg") center;
   background-size: cover;
   display: block;
 }

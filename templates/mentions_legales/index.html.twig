@@ -1,7 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}mentions légales
+{% endblock %}
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/infosprat.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
 <main>
         <h2>Informations pratiques liées à l'utilisation du site internet FeaTips.fr</h2>
-        <section>
-            <a href="#cguv">
+        <section id="cgu">
                 <h3 class="title">Conditions générales d'utilisation</h3>
             </a>
 
@@ -253,7 +261,7 @@
             
             </br>
         </section>
-        <section>
+        <section id="cgv">
             <a href="#cgv"><h3>CONDITIONS GENERALES DE VENTE </h3></a>
             <p>
                 Applicables à compter du..... (date) </p>
@@ -378,7 +386,7 @@
             <p> Cette liste n’est pas exhaustive.
             </p>
         </section>
-        <section>
+        <section id="mentions-legales">
             <h3>Mentions légales</h3>
             <p>
 
@@ -405,8 +413,8 @@
             </p>
             </br>
         </section>
-        <section>
-            <a href="#protectiondonnees"><h3>Protection des données</h3></a>
+        <section id="protection-des-donnees">
+            <a href="#"><h3>Protection des données</h3></a>
             <p>
 
                 Chez featips, on tient à respecter votre vie privée ! <br/>
@@ -699,5 +707,70 @@
                 Date de mise en ligne de la présente politique : 13 Janvier 2022.
             </p>
         </section>
+        <section id="modalites-paiement">
+                <h2>PRIX ET MODALITES DE PAIEMENT</h2> <br/>
+                <P>
+                6.1. Le prix de l’Abonnement est indiqué en Euros, toutes taxes comprises (TTC).<br/>
+
+                6.2. La Société se réserve le droit de modifier le prix de l’Abonnement, et s’engage dans cette hypothèse à communiquer à l'utilisateur toute modification tarifaire à l’avance, ainsi que le cas échéant les modalités d’acceptation de ces changements. Les modifications tarifaires prendront effet à compter de la nouvelle période d’abonnement consécutive à la date de modification tarifaire. </br>
+
+                6.3. En cas de non-acceptation des nouveaux tarifs, l’Utilisateur se réserve le droit de refuser la modification en résiliant son Abonnement avant l’entrée en vigueur de la modification tarifaire, dans les conditions prévues à l’article 9.1.<br/>
+
+                6.4. Concernant l’Abonnement mensuel<br/>
+
+                Le paiement s’effectue au moment de la souscription, par carte bancaire (CB, Visa, MasterCard, American Express) via la plateforme sécurisée de paiement Stripe, sur laquelle l’Utilisateur renseigne directement ses coordonnées bancaires, via Paypal, ITunes ou Google Play. En aucun cas, le Site et/ou la Société TISSY ont et auront accès aux coordonnées bancaires de l’Utilisateur.<br/>
+
+                Sauf résiliation par l’Utilisateur dans la date limite de non-reconduction indiquée dans l’e-mail de confirmation, le paiement des mensualités suivantes sera automatiquement effectué par prélèvement sur le même mode de paiement à savoir sur la carte bancaire dont l’Utilisateur aura renseigné les coordonnées précédemment, ou via le Compte Paypal, Itunes ou Google Play utilisé.<br/>
+
+                6.5. Concernant l’Abonnement trimestriel, annuel ou trisannuel<br/>
+
+                Le paiement s’effectue dans sa totalité au moment de la souscription, par carte bancaire (CB, Visa, MasterCard, American Express) via la plateforme sécurisée de paiement Stripe sur laquelle l’Utilisateur renseigne directement ses coordonnées bancaires, via Paypal, ITunes ou Google Play. En aucun cas, la Société n’a ni n’aura accès aux coordonnées bancaires de l’Utilisateur.<br/>
+
+                Sauf résiliation par l’Utilisateur dans la date limite de non-reconduction indiquée dans l’e-mail de confirmation, l’Abonnement trimestriel, annuel sera tacitement renouvelé pour une nouvelle période identique (3, 12 suivant durée de l'abonnement choisi). En conséquence, le paiement de l’intégralité de la souscription, soit des trois (3), douze (12) mensualités sera automatiquement effectué par prélèvement sur le même mode de paiement à savoir sur la carte bancaire dont l’Utilisateur aura renseigné les coordonnées précédemment, ou via le Compte Paypal, Itunes ou Google Play utilisé. La formule trisannuelle ne fait pas l’objet d’une tacite reconduction. 
+                <br/>
+                6.6. Il appartient à l’Utilisateur de mettre à jour ses coordonnées bancaires, en temps utile, et d’en informer la Société, au même titre que tout éventuel incident de paiement. A défaut de mise à jour de ses coordonnées bancaires (notamment en cas de changement de carte bancaire), son compte pourra être suspendu jusqu’à la mise à jour de coordonnées valides. <br/>
+
+                6.7. L’UTILISATEUR GARANTIT QU’IL DISPOSE DE TOUTES LES AUTORISATIONS NÉCESSAIRES À UNE UTILISATION PERSONNELLE DU MOYEN DE PAIEMENT SÉLECTIONNÉ.<br/>
+
+                DROIT DE RÉTRACTATION<br/>
+
+                7.1. Par principe, en cas de souscription à distance d’un Abonnement, l’Utilisateur dispose d’un droit de rétractation en application des articles L. 221-1 et suivants du Code de la Consommation qui peut être exercé dans un délai de quatorze (14) jours à compter de la souscription de l’offre ou de la formule sauf si ce dernier a déclenché la fourniture immédiate du service. La date d’acceptation de l’offre correspond à la date de souscription de l’Abonnement au moment de son paiement. Tel est le cas en cas de souscription de plusieurs abonnements. A compter de la souscription de l’offre ou de la formule, l’Utilisateur disposera d’un délai de quatorze (14) jours pour exercer son droit de rétractation sur l’Abonnement souscrit et non déclenché en écrivant à l’adresse contact@trainsweateat.com et en remplissant ledit formulaire. Sous réserve du respect des conditions stipulées ci-avant pour l’exercice du droit de rétractation, l’utilisateur sera intégralement remboursé des sommes payées par lui dans un délai de 14 jours à compter de la réception par le Site de la demande. <br/>
+
+                7.2. En cas d’achat d’une carte cadeau, seul le Tiers souscripteur disposera d’un délai de quatorze (14) jours pour exercer son droit de rétractation sur la carte souscrite et non déclenché par l’activation du code par l’Utilisateur bénéficiaire en écrivant à l’adresse contact@trainsweateat.com et en remplissant ledit formulaire. Sous réserve du respect des conditions stipulées ci-avant pour l’exercice du droit de rétractation, le tiers souscripteur sera intégralement remboursé des sommes payées par lui dans un délai de 14 jours à compter de la réception par le Site de la demande. 
+                <br/>
+                EXCEPTION : <br/>
+
+                7.3. En payant le prix de l’Abonnement souscrit, l’Utilisateur accepte de déclencher la fourniture immédiate du contenu numérique des programmes du Site ou de l’Application en cochant la case dédiée à cet effet l’informant de la renonciation à son droit de rétractation sur l’Abonnement souscrit et permettant de recueillir son consentement exprès.<br/>
+
+                7.3. En activant le code de la carte cadeau, l’Utilisateur bénéficiaire accepte de déclencher la fourniture immédiate du contenu numérique des programmes du Site ou de l’Application en cochant la case dédiée à cet effet l’informant de la renonciation du droit de rétractation sur la carte cadeau souscrite par le Tiers et permettant de recueillir son consentement exprès.
+                <br/>
+                7.5. Conformément aux exceptions légales prévues à l’article L.221-28 13° du Code de la consommation, l’Utilisateur accepte sans réserve les présentes Conditions Générales d’Utilisation et de Vente, et fixe sa renonciation expresse à bénéficier du droit de rétractation en payant le prix de l’Abonnement et en cochant la case dédiée à cet effet pour accéder au contenu.
+                <br/>
+                </p>
+                <p>
+                CONDITIONS DE RÉSILIATION D’UN ABONNEMENT <br/>
+
+                Les Abonnements demeureront en vigueur et seront tacitement renouvelés à leur date d’anniversaire (à l’exception de l’Abonnement trisannuel), jusqu’à leur résiliation par l’Utilisateur ou par le Site.<br/>
+
+                8.1. Résiliation du fait du Client<br/>
+
+                Lorsque l’Utilisateur a souscrit un Abonnement et payé par carte bancaire ou via Paypal via le Site, celui-ci a - la faculté de notifier son intention de résilier son abonnement depuis son Compte Abonné, sans motif ni frais, en cliquant sur la rubrique « Mes Adhésions » puis « Résilier l’adhésion » au moins quarante-huit (48) heures avant le terme des Abonnements mensuels et au moins 5 jours avant le terme des autres Abonnements.<br/>
+
+                Les Abonnements étant conclus pour une durée ferme, la prise d’effet de la résiliation n’est pas concomitante à la notification mais est fixée au terme de la période d’abonnement en cours.<br/>
+
+                Lorsque l’Utilisateur a souscrit un Abonnement via l’Application, et payé via Itunes ou Google Pay, celui-ci dispose de la faculté de résilier son abonnement directement et exclusivement depuis son Compte Apple ou Google. <br/>
+
+                En tout état de cause, la demande de résiliation n'entraîne en aucun cas le remboursement à l’Utilisateur de la période restant à courir jusqu’à l’échéance du terme de l’abonnement. <br/>
+
+                8.2. Résiliation du fait du Site<br/>
+
+                Le Site se réserve le droit de résilier à tout moment, un Abonnement et/ou de clôturer un Compte Abonné en cas d’utilisation frauduleuse ou illicite des moyens d’authentification (utilisateur et/ou mot de passe) d’un Utilisateur, en cas de violation des présentes CGUV, ainsi qu’en cas de défaut de paiement d’une des mensualités, dans l’hypothèse prévue à l’article 5.4.<br/>
+
+                Dans cette hypothèse, l’Utilisateur reconnaît avoir été informé que l’Abonnement sera résilié de plein droit par la Société, sans possibilité pour l’Utilisateur de prétendre à une quelconque indemnité ni remboursement de la période d’abonnement restant à courir au jour de la prise d’acte de la résiliation.
+                </p>
+        </section>
+
 
     </main>
+
+{% endblock %}
