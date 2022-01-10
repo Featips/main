@@ -70,6 +70,7 @@ body {
 .splide__slide img {
   width: 350px;
   height: 350px;
+  margin-bottom:15px;
   object-fit: cover;
 }
 .description-article {

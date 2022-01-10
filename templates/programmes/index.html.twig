@@ -2,42 +2,82 @@
 
 {% block title %}Hello ProgrammesController!{% endblock %}
 {% block stylesheetsperso %}
-    <link href="{{ asset('assets/css/programmes.css')  }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/programme.css')  }}" rel="stylesheet">
     <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css')  }}" rel="stylesheet">
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block body %}
- <div class="intro-programmes">
- <div class="banniere-programmes-img"></div>
+
+  <div class="banniere-programmes-img"></div>
+    <div class="intro-programmes">
     <h1>Les programmes proposés par nos coachs</h1>
-    <h2>
-      Description de la section en une ou deux phrases. Description de la
-      section en une ou deux phrases plus ou moins longujes
-    </h2>
+    <p>
+    Trouvez les programmes qui correspondent à vos objectifs! <br/>
+    Les coachs vous ont mis à disposition des articles, vidéos et illustrations pour vous accompagner tout au long de votre parcours sportif.
+    </p>
 </div>
-  <section class="carousel1">
-    <h2>Articles à la une</h2>
+  <section class="carousel">
+    <h2>Programme sèche</h2>
     <div class="splide">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/BeachVolley.png')  }}" alt="beach-volley" />
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/consommermieux.jpg')  }}" alt="panier de legumes" />
               <div class="description-article">
-                <p class="title-article">Titre de l'article</p>
+                <p class="title-article">Consommer de manière intelligente</p>
                 <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
                 <p class="authors">Auteurs</p>
               </div>
             </a></li>
-          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/juliacha.jpg')  }}" alt="Climb moutain" />
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/muscles.jpg')  }}" alt="muscles corps humain" />
               <div class="description-article">
-                <p class="title-article">Titre de l'article</p>
+                <p class="title-article">Se muscler en douceur</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
                 <p class="authors">Auteurs</p>
               </div>
             </a></li>
           <li class="splide__slide"><a href="#">
-              <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
+              <img src="{{ asset('assets/img/routineseche.jpg')  }}" alt="basketball-court" />
+              <div class="description-article">
+                <p class="title-article">Routine sèche</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#">
+              <img src="{{ asset('assets/img/sissy.png')  }}" alt="basketball-court" />
               <div class="description-article">
                 <p class="title-article">Titre de l'article</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+   <section class="carousel">
+    <h2>Améliorer son cardio</h2>
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/course.jpg')  }}" alt="course à pieds" />
+              <div class="description-article">
+                <p class="title-article">La course à pieds</p>
+                <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/cordeasauter.jpg')  }}" alt="corde à sauter" />
+              <div class="description-article">
+                <p class="title-article">La corde à sauter</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#">
+              <img src="{{ asset('assets/img/sissy.png')  }}" alt="basketball-court" />
+              <div class="description-article">
+                <p class="title-article">Les HIIT</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
                 <p class="authors">Auteurs</p>
               </div>
@@ -45,7 +85,46 @@
           <li class="splide__slide"><a href="#">
               <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
               <div class="description-article">
-                <p class="title-article">Titre de l'article</p>
+                <p class="title-article">Le crossfit</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="carousel">
+  <h2>Améliorer sa technique sportive</h2>
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/BeachVolley.png')  }}" alt="beach-volley" />
+              <div class="description-article">
+                <p class="title-article">Volleyball : les stratégies</p>
+                <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/juliacha.jpg')  }}" alt="Climb moutain" />
+              <div class="description-article">
+                <p class="title-article">Grimper en falaise</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#">
+              <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
+              <div class="description-article">
+                <p class="title-article">Basketball: stratégies d'équipe</p>
+                <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                <p class="authors">Auteurs</p>
+              </div>
+            </a></li>
+          <li class="splide__slide"><a href="#">
+              <img src="{{ asset('assets/img/basketball-court-g55e624258_1920.jpg')  }}" alt="basketball-court" />
+              <div class="description-article">
+                <p class="title-article">Basketball : le cardio</p>
                 <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
                 <p class="authors">Auteurs</p>
               </div>
