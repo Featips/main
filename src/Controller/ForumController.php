@@ -35,7 +35,7 @@ class ForumController extends AbstractController
         else{
 
         
-        return $this->render('forum/index.html.twig', [
+        return $this->render('forum/category.html.twig', [
             'category' => $category,
         ]);
     }

@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Forum Featips{% endblock %}
+{% block title %}{{category.name}}{% endblock %}
 
 {% block body %}
 <div class="example-wrapper">
-    <h2>Bienvenue sur le forum de Featips !!</h2>
+    <h2>Ici on parle de {{ category.name }}</h2>
 
     
-    <ul>
+    {# <ul>
         {% for category in categories %}
 
         <li><a href="{{ path('forum', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
         
         {% endfor %}
 
-    </ul>
+    </ul> #}
 </div>
 {% endblock %}
-
-
