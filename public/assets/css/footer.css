@@ -11,13 +11,13 @@
     src: url("assets/fonts/FrancoisOne-Regular.ttf") format("ttf"),
    }
    
-body {
+/* body {
     display: flex;
     flex-direction:column;
     margin:0;
     height: 100%;
     position: relative;
-}
+} */
 .contenu {
     /* grow shrink flex basis */
     flex: 1 0 auto;

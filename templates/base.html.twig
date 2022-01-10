@@ -26,23 +26,23 @@
       <div id="top-nav">
         <nav role="navigation" id="topnav_menu">
           <div class="logo-nav">
-            <a href="#"><img class="featips-logo" src="{{ asset('assets/logo3.png" alt="FeaTips-Logo')  }}" /></a>
+            <a href="#"><img class="featips-logo" src="{{ asset('assets/img/logo3.png' )  }}" alt="FeaTips-Logo" /></a>
           </div>
           <div class="nav-bar">
             <div class="container">
               <div class="lien">
                 <ul class="first-nav">
-                  <li><a href="#">Articles</a></li>
-                  <li><a href="#">Programmes</a></li>
+                  <li> <a href="{{ path('articles') }}">Articles</a></li>
+                  <li><a href="{{ path('programmes') }}">Programmes</a></li>
                   <li><a href="#">Forum</a></li>
                 </ul>
               </div>
               <div class="btn-connexion-inscription">
-                <div class="btn btn-1">Se connecter</div>
-                <div class="btn btn-2">S'inscrire</div>
+                <div class="btn btn-1"><a "{{ path('app_login') }}">Se connecter</a></div>
+                <div class="btn btn-2"><a "{{ path('app_register') }}">S'inscrire</a></div>
               </div>
               <div class="btn-account-on">
-                <div class="btn btn-account">Mon compte</div>
+                <div class="btn btn-account"><a "{{ path('account') }}">Mon compte</a></div>
               </div>
             </div>
           </div>
