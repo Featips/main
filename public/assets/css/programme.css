@@ -8,8 +8,16 @@ body {
   box-sizing: border-box;
   justify-content: space-evenly;
 } 
-header {
-  background: url('../imgFeaTips/img/woman-g2c3b5e81d_1920.jpg');
+.intro-programmes{
+  position: relative;
+  display: inline-block;
+}
+.banniere-programmes-img{
+  background: url('../img/banniereprogrammes.jpg');
+  width: 100%;
+  height: 440px;
+  background-size: cover;
+  position: block;
 }
 .carousel1 {
     width: 90%;

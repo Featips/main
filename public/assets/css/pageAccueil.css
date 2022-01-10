@@ -20,7 +20,7 @@ body {
 .banniere-accueil-img {
   width: 100%;
   height: 440px;
-  background: url("../assets/imgFeaTips/headerPageAccueil.jpg") center;
+  background: url("../img/headerPageAccueil.jpg") center;
   background-size: cover;
   position: block;
 }
