@@ -3,12 +3,12 @@
 body {
   margin: 0;
   padding: 0;
-
+  display:flex;
+  justify-content: center;
   font-family: "Roboto", sans-serif;
-  position:absolute;
   box-sizing: border-box;
-  justify-content: space-evenly;
   align-items:center;
+  flex-wrap:wrap;
 } 
 .banniere-programmes-img{
   background: url('../img/banniereprogrammes.jpg');
