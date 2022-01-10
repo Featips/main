@@ -32,11 +32,6 @@ class ForumPost
      */
     private $content;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -78,15 +73,4 @@ class ForumPost
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 }

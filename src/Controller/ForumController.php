@@ -84,8 +84,8 @@ class ForumController extends AbstractController
     public function post($id, Request $request) : Response
     {
         
-        $form = $this->createForm(PostType::class);
-        $form->handleRequest($request);
+        // $form = $this->createForm(PostType::class);
+        // $form->handleRequest($request);
 
         $post = $this->entityManager->getRepository(ForumPost::class)->findOneBy($id);
         if (!$post) {
@@ -93,7 +93,7 @@ class ForumController extends AbstractController
         } else {
 
             return $this->render('forum/post.html.twig', [
-                'Postform' => $form->createView(),
+                // 'Postform' => $form->createView(),
                 'post' => $post,
 
             ]);

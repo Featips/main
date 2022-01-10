@@ -17,17 +17,9 @@
             <button>nouveau</button>
             {{ form_start(Postform) }}
             {{ form_row(Postform.content) }}
-             <button type="submit" class="btn">Envoyer</button>
-    {{ form_end(Postform) }}
+            <button type="submit" class="btn">Envoyer</button>
+            {{ form_end(Postform) }}
         </div>
 
-        {# <ul>
-        {% for category in categories %}
-
-        <li><a href="{{ path('forum', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
-        
-        {% endfor %}
-
-    </ul> #}
     </div>
 {% endblock %}
