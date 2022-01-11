@@ -59,6 +59,7 @@ nav:after {
 	clear:both;
 }
 nav ul{
+	display: flex;
 	list-style: none;
 	position: relative;
   padding:0;
@@ -67,9 +68,12 @@ nav ul{
 .menu{
   width:70%;
 }
-#account-menu {
+/* #account-menu {
 	float: right;
   margin-right: 3px;
+} */
+#login-btn {
+	margin-left:auto;
 }
 #login-btn a{
   color: #4279e5;
@@ -91,7 +95,9 @@ font-weight: bolder;
 nav ul li {
 	margin: 0px;
 	display:inline-block;
-	float: left;
+}
+#list-filter-article, #list-programmes{
+	z-index:1000;
 }
 
 /* Styling the links */
