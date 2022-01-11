@@ -6,10 +6,15 @@
 {% block body %}
     <div class="example-wrapper">
         <h2>{{ topic.title }}</h2>
+        <p>{{topic.content}}</p>
+        
 
         <ul>
             {% for post in posts %}
-                <li>{{ post.content }}</li>
+
+                
+                    <li>{{ post.content }}</li>
+              
             {% endfor %}
         </ul>
 

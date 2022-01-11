@@ -6,24 +6,32 @@
 <div class="example-wrapper">
     <h2>Ici on parle de {{ category.name }}</h2>
    
+    
+
     <ul>
     {% for topic in topics %}
+       {# <pre>
+        {{ dump(topic.is_locked) }}
+    </pre> #}
+        {# {% if topic.is_locked == true %}
+                {% else %} #}
         <h3> <a href="{{ path('topic', {'slug' : topic.slug, 'category' : category.slug }  ) }} ">{{ topic.title }}</a> </h3>
+    {# {% endif %} #}
     {% endfor %}
     </ul>
     
     <div>
    
-{#    
+    
     <button>nouveau</button>
     
-    {{ form_start(ForumTopic) }}
-    {{ form_row(ForumTopic.title) }}
-    {{ form_row(ForumTopic.content) }}
-    {{ form_row(ForumTopic.post) }}
+    {{ form_start(Topicform) }}
+    {{ form_row(Topicform.title) }}
+    {{ form_row(Topicform.content) }}
+    {# {{ form_row(Topicform.post) }} #}
      <button type="submit" class="btn">Evoyer</button>
-    {{ form_end(ForumTopic) }}
-    </div> #}
+    {{ form_end(Topicform) }}
+    </div> 
     
 
 

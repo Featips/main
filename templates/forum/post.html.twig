@@ -4,10 +4,10 @@
 
 {% block body %}
 <div class="example-wrapper">
+    <p>{{topic.content}}</p>
     <h2>{{ post.id }}</h2>
-
     <ul>
-    {% for posts in post %}
+    {% for post in posts %}
         <li>{{ post.content }}</li>
     {% endfor %}
     </ul>

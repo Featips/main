@@ -6,6 +6,7 @@ use App\Entity\ForumCategory;
 use App\Entity\ForumTopic;
 use App\Entity\ForumPost;
 use App\Form\PostType;
+use App\Form\TopicType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,23 +36,41 @@ class ForumController extends AbstractController
 
     }
     #[Route('/forum/{slug}', name: 'category')]
-    public function show($slug) : Response
+    public function show($slug, Request $request, EntityManagerInterface $entityManager) : Response
     {
         $category = $this->entityManager->getRepository(ForumCategory::class)->findOneBySlug($slug);
         if (!$category) {
             return $this->redirectToRoute('forum');
         } else {
+            $user=$this->getUser();
             $categoryid = $category->getId();
+            
+            $topic = new ForumTopic();
+            
+            $form = $this->createForm(TopicType::class);
+            $form->handleRequest($request);
+            // dd($topic);
+
+            if ($form->isSubmitted() && $form->isValid() ) {
+                
+                $title = $form->get('title')->getData();
+                $content = $form->get('content')->getData();
+                $topic->setContent($content);
+                $topic->setTitle($title);
+                //$topic->setUser($user);
+                $topic->setCategory($category);
+                $topic->setSlug($title);
+                $entityManager->persist($topic);
+                $this->entityManager->flush();
+            }
+            
+            
+            
             $topics = $this->entityManager->getRepository(ForumTopic::class)->findBy(['category' => $categoryid]);
-            
-            
-            
-            
-            
-            
             return $this->render('forum/category.html.twig', [
                 'category' => $category,
                 'topics' => $topics,
+                'Topicform' => $form->createView(),
             
             
             
@@ -77,7 +96,7 @@ class ForumController extends AbstractController
         } else {
             $user=$this->getUser();
             
-            $post = new ForumPost($idUse, $idTop);
+            $post = new ForumPost();
             
             $form = $this->createForm(PostType::class);
             $form->handleRequest($request);
@@ -88,7 +107,6 @@ class ForumController extends AbstractController
                 $post->setContent($content);
                 $post->setUser($user);
                 $post->setTopic($topic);
-                
                 // dd($post);
                 $entityManager->persist($post);
                 $this->entityManager->flush();
@@ -107,25 +125,25 @@ class ForumController extends AbstractController
         }
     }
     
-    #[Route('/forum/{category}/{topic}/{id}', name: 'post')]
-    public function post($id, Request $request) : Response
-    {
+    // #[Route('/forum/{category}/{topic}/{id}', name: 'post')]
+    // public function post($id, Request $request) : Response
+    // {
         
-        // $form = $this->createForm(PostType::class);
-        // $form->handleRequest($request);
+    //     // $form = $this->createForm(PostType::class);
+    //     // $form->handleRequest($request);
 
-        $post = $this->entityManager->getRepository(ForumPost::class)->findOneBy($id);
-        if (!$post) {
-            return $this->redirectToRoute('forum');
-        } else {
+    //     $post = $this->entityManager->getRepository(ForumPost::class)->findOneBy($id);
+    //     if (!$post) {
+    //         return $this->redirectToRoute('forum');
+    //     } else {
 
-            return $this->render('forum/post.html.twig', [
-                // 'Postform' => $form->createView(),
-                'post' => $post,
+    //         return $this->render('forum/post.html.twig', [
+    //             // 'Postform' => $form->createView(),
+    //             'post' => $post,
 
-            ]);
-        }
-    }
+    //         ]);
+    //     }
+    // }
 
 
 

@@ -24,14 +24,14 @@ class TopicType extends AbstractType
                 'label' => 'topic.content',
                 'attr'  => ['class' => 'textarea_topic'] 
             ])
-            ->add(
-                'post',
-                CollectionType::class,
-                [
-                    'entry_type' => PostType::class,
+            // ->add(
+            //     'post',
+            //     CollectionType::class,
+            //     [
+            //         'entry_type' => PostType::class,
                     
-                ]
-            )
+            //     ]
+            // )
         ;
     }
 

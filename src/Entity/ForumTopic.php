@@ -37,7 +37,7 @@ class ForumTopic
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_locked;
+    private $is_locked = false;
 
    
    
