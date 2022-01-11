@@ -13,6 +13,7 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            
             ->add('content', TextareaType::class,[
                 'label' => 'forum.content',
                 'attr'  => ['class' => 'textarea_post'] 

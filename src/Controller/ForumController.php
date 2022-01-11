@@ -42,12 +42,21 @@ class ForumController extends AbstractController
             return $this->redirectToRoute('forum');
         } else {
             $categoryid = $category->getId();
-            //dd($categoryid);
             $topics = $this->entityManager->getRepository(ForumTopic::class)->findBy(['category' => $categoryid]);
+            
+            
+            
+            
+            
+            
             return $this->render('forum/category.html.twig', [
                 'category' => $category,
                 'topics' => $topics,
-            ]);
+            
+            
+            
+            
+                ]);
         
         // $topics = $this->entityManager->getRepository(ForumTopic::class)->findAll();
         // return $this->render('forum/category.html.twig', [
@@ -58,28 +67,46 @@ class ForumController extends AbstractController
     }   
 
     #[Route('/forum/{category}/{slug}', name: 'topic')]
-    public function topic($category, $slug, Request $request ) : Response
+    public function topic($category, $slug, Request $request, EntityManagerInterface $entityManager ) : Response
     {
         $topic = $this->entityManager->getRepository(ForumTopic::class)->findOneBySlug($slug);
+         
         
         if (!$topic) {
             return $this->redirectToRoute('forum');
         } else {
-
+            $user=$this->getUser();
+            
+            $post = new ForumPost($idUse, $idTop);
+            
             $form = $this->createForm(PostType::class);
             $form->handleRequest($request);
             //add
-
+            if ($form->isSubmitted() && $form->isValid() ) {
+               
+                $content = $form->get('content')->getData();
+                $post->setContent($content);
+                $post->setUser($user);
+                $post->setTopic($topic);
+                
+                // dd($post);
+                $entityManager->persist($post);
+                $this->entityManager->flush();
+            }
             $posts = $this->entityManager->getRepository(ForumPost::class)->findBy(['topic' => $topic->getId()]);
+            
+            
             // dd($posts);
             return $this->render('forum/topic.html.twig', [
                 'topic' => $topic, 'posts' => $posts,
-                'Postform' => $form->createView()
+                'Postform' => $form->createView(),
+
             ]);
 
-
+            
         }
     }
+    
     #[Route('/forum/{category}/{topic}/{id}', name: 'post')]
     public function post($id, Request $request) : Response
     {
