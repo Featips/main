@@ -14,7 +14,7 @@ body {
 	font-family: "Roboto Regular", "Open Sans", sans-serif;
 	}
 
-a {
+a, a:hover {
   text-decoration: none;
 }
 #container {
@@ -114,6 +114,7 @@ nav a {
 .main-menu a:hover, #forum a:hover{
   background: #4279e5;
   color:white;
+  text-decoration:none;
 }
 
 /* on cache le dropdown menu et on le positionne */

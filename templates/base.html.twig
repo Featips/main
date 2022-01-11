@@ -22,7 +22,7 @@
         {% block header %}
 <header>
  <nav>
-        <div id="logo"><a href="#"><img class="featips-logo" src="{{ asset('assets/img/logo3.png' )  }}" alt="FeaTips-Logo" /></a></div>
+        <div id="logo"><a href="{{ path('home') }}"><img class="featips-logo" src="{{ asset('assets/img/logo3.png' )  }}" alt="FeaTips-Logo" /></a></div>
 
         <input type="checkbox" id="drop" />
             <ul class="menu">
@@ -46,6 +46,15 @@
                     <li><a href="#">Améliorer sa technique de grimpe</a></li>
                     <li><a href="#">1 mois pour devenir plus souple</a></li>
                     </ul>
+                </li>
+                <li class="main-menu">
+                    <label for="drop-3" class="toggle">Coachs</label>
+                    <a href="{{ path('articles') }}">Coachs</a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul id="list-filter-article">
+                        <li><a href="#">Tibo Inshape</a></li>
+                        <li><a href="#">Sissy Mua</a></li>
+                    </ul> 
                 </li>
                 <li id="forum"><a href="#">Forum</a></li>
                 
