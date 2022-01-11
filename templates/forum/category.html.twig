@@ -10,13 +10,10 @@
 
     <ul>
     {% for topic in topics %}
-       {# <pre>
-        {{ dump(topic.is_locked) }}
-    </pre> #}
-        {# {% if topic.is_locked == true %}
-                {% else %} #}
+        {% if topic.islocked == true %}
+                {% else %}
         <h3> <a href="{{ path('topic', {'slug' : topic.slug, 'category' : category.slug }  ) }} ">{{ topic.title }}</a> </h3>
-    {# {% endif %} #}
+    {% endif %}
     {% endfor %}
     </ul>
     

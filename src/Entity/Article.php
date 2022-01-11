@@ -42,7 +42,7 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_premium;
+    private $ispremium;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -126,12 +126,12 @@ class Article
 
     public function getIsPremium(): ?bool
     {
-        return $this->is_premium;
+        return $this->ispremium;
     }
 
-    public function setIsPremium(bool $is_premium): self
+    public function setIsPremium(bool $ispremium): self
     {
-        $this->is_premium = $is_premium;
+        $this->is_premium = $ispremium;
 
         return $this;
     }

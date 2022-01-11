@@ -19,10 +19,13 @@ class ContactFormController extends AbstractController
     // }
 
     #[Route('/contact/form', name: 'contact_form')]
-    public function index(Request $request): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {   
-        // $user = $this->getUser();
+        $user = $this->getUser();
 
+        // if ($user) {
+
+        // }
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 

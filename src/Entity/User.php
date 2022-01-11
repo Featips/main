@@ -55,7 +55,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_premium = false;
+    private $ispremium = false;
 
     /**
      * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="user")
@@ -65,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $profile_pic;
+    private $profilepic;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -190,12 +190,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getIsPremium(): ?bool
     {
-        return $this->is_premium;
+        return $this->ispremium;
     }
 
-    public function setIsPremium(bool $is_premium): self
+    public function setIsPremium(bool $ispremium): self
     {
-        $this->is_premium = $is_premium;
+        $this->ispremium = $ispremium;
 
         return $this;
     }
@@ -229,12 +229,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getProfilePic(): ?string
     {
-        return $this->profile_pic;
+        return $this->profilepic;
     }
 
-    public function setProfilePic(?string $profile_pic): self
+    public function setProfilePic(?string $profilepic): self
     {
-        $this->profile_pic = $profile_pic;
+        $this->profilepic = $profilepic;
 
         return $this;
     }

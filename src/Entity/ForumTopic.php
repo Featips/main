@@ -37,7 +37,7 @@ class ForumTopic
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_locked = false;
+    private $islocked = false;
 
    
    
@@ -118,12 +118,12 @@ class ForumTopic
 
     public function getIsLocked(): ?bool
     {
-        return $this->is_locked;
+        return $this->islocked;
     }
 
-    public function setIsLocked(bool $is_locked): self
+    public function setIsLocked(bool $islocked): self
     {
-        $this->is_locked = $is_locked;
+        $this->islocked = $islocked;
 
         return $this;
     }
