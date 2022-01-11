@@ -5,7 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CheckboxField;
 class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -22,7 +23,7 @@ class UserCrudController extends AbstractCrudController
     //         TextField::new('firstname'),
     //         TextField::new('lastname'),
     //         ImageField::new('profilepic')->setBasePath('uploads/')->setUploadDir('public/assets/uploads')->setUploadedFileNamePattern('[randomhash].[extension]'),
-        //     TextField::new('lastname'),
+    //         CheckboxField::new('ispremium'),
     //      
 
             
