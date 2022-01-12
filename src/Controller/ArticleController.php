@@ -16,9 +16,17 @@ class ArticleController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
+    #[Route('/articles', name: 'articles')]
+    public function index(): Response
+    {
+        $articles = $this->entityManager->getRepository(Article::class)->findAll();
+        return $this->render('articles/index.html.twig', [
+            'articles' => $articles,
+        ]);
+    }
 
     #[Route('/article/{slug}', name: 'article')]
-    public function index($slug ): Response
+    public function show($slug ): Response
     {
         $article = $this->entityManager->getRepository(Article::class)->findOneBySlug($slug);
         if(!$article)

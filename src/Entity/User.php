@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use App\Entity\Article;
+
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Query\AST\Functions\CurrentTimestampFunction;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -57,11 +56,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $ispremium = false;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="user")
-     */
-    private $articles;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $profilepic;
@@ -82,12 +76,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $topic;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="user")
+     */
+    private $articles;
+
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        
         $this->forumTopics = new ArrayCollection();
         $this->topic = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
+
+    
 
     public function getId(): ?int
     {
@@ -104,6 +106,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getUserName();
     }
 
     /**
@@ -195,33 +202,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->removeElement($article)) {
-            $article->removeUser($this);
-        }
-
-        return $this;
-    }
-
     public function getProfilePic(): ?string
     {
         return $this->profilepic;
@@ -297,6 +277,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($topic->getUser() === $this) {
                 $topic->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getUser() === $this) {
+                $article->setUser(null);
             }
         }
 

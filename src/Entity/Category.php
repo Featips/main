@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -25,13 +24,23 @@ class Category
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category")
      */
     private $articles;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 
     public function getId(): ?int
@@ -63,7 +72,7 @@ class Category
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->addCategory($this);
+            $article->setCategory($this);
         }
 
         return $this;
@@ -72,9 +81,25 @@ class Category
     public function removeArticle(Article $article): self
     {
         if ($this->articles->removeElement($article)) {
-            $article->removeCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
         }
 
         return $this;
     }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
 }

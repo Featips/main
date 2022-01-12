@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,21 +42,6 @@ class Article
     private $ispremium = false;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="articles")
-     */
-    private $category;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Program::class, inversedBy="articles")
-     */
-    private $program;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="articles")
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
@@ -69,12 +51,21 @@ class Article
      */
     private $url;
 
-    public function __construct()
-    {
-        $this->category = new ArrayCollection();
-        $this->program = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Program::class, inversedBy="articles")
+     */
+    private $program;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
+     */
+    private $user;
+
 
     public function getId(): ?int
     {
@@ -141,78 +132,6 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategory(): Collection
-    {
-        return $this->category;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        $this->category->removeElement($category);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Program[]
-     */
-    public function getProgram(): Collection
-    {
-        return $this->program;
-    }
-
-    public function addProgram(Program $program): self
-    {
-        if (!$this->program->contains($program)) {
-            $this->program[] = $program;
-        }
-
-        return $this;
-    }
-
-    public function removeProgram(Program $program): self
-    {
-        $this->program->removeElement($program);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
-    {
-        return $this->user;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        $this->user->removeElement($user);
-
-        return $this;
-    }
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -233,6 +152,42 @@ class Article
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getProgram(): ?Program
+    {
+        return $this->program;
+    }
+
+    public function setProgram(?Program $program): self
+    {
+        $this->program = $program;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

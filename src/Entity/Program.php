@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,15 +26,25 @@ class Program
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="program")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="program")
      */
     private $articles;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
         $this->articles = new ArrayCollection();
     }
-
+    
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -63,7 +74,7 @@ class Program
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->addProgram($this);
+            $article->setProgram($this);
         }
 
         return $this;
@@ -72,8 +83,23 @@ class Program
     public function removeArticle(Article $article): self
     {
         if ($this->articles->removeElement($article)) {
-            $article->removeProgram($this);
+            // set the owning side to null (unless already changed)
+            if ($article->getProgram() === $this) {
+                $article->setProgram(null);
+            }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
