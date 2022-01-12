@@ -23,10 +23,11 @@
                 <iframe width="560" height="315" src="{{article.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
                 <section>
                     <div class="">
-                        <img src="{{ asset('assets/img/coach.jpg')  }}" alt="coach1"/>
+                        <img src="/assets/uploads/{{ article.user.profilepic }}" alt="coach1"/>
+                        <p>Ecris pars {{article.user.firstname}}</p>
                         <!-- Est ce qu'on fait 1 et on apellle ? -->
-                        <img class="mecmuscle" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach2"/>
-                        <img class="Rugbyman" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach 3"/>
+                        {# <img class="mecmuscle" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach2"/>
+                        <img class="Rugbyman" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach 3"/> #}
                     </section>
                 </div>
             </div>

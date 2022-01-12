@@ -7,7 +7,7 @@
 
 	<ul>
 		{% for article in articles %}
-			{% if article.category.id == 1 %}
+			{# {% if article.category.id == 1 %} #}
 				<h2>
 					{{article.category.name}}
 				</h2>
@@ -21,10 +21,10 @@
 						<a href="{{ path('article', {'slug' : article.slug}) }} ">{{ article.slug }}</a>
 					{% endif %}
 				</li>
-			{% else %}
+			{# {% else %}
 				{{article.category.name}}
 				{{article.title}}
-			{% endif %}
+			{% endif %} #}
 		{% endfor %}
 
 	</ul>
