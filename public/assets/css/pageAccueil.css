@@ -8,19 +8,21 @@ body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 /* bannière d'accueil */
 .banniere-accueil {
   position: relative;
   display: inline-block;
+  z-index: 2;
+  width: 100%;
 }
 .banniere-accueil-img {
   width: 100%;
   height: 440px;
-  background: url("../../assets/img/headerPageAccueil.jpg") center;
+  background: url("../img/headerPageaccueil.jpg") center;
   background-size: cover;
-  box-shadow: 0px 2px 5px #444444;
   position: block;
 }
 .banniere-accueil p {
@@ -42,15 +44,20 @@ body {
 }
 
 /* slider articles à la une */
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .carousel {
-  width: 90%;
-  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  margin: 5vh;
   padding-top: 20px;
-  padding-left: 30px;
   padding-bottom: 10px;
   background-color: rgba(44, 44, 44);
-  box-shadow: 0px 2px 5px #444444;
-  border-radius: 10px;
 }
 .carousel h2 {
   text-align: center;
@@ -71,15 +78,15 @@ body {
 .splide__slide img {
   width: 350px;
   height: 350px;
+  /* margin-bottom: 15px; */
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px #444444;
 }
 .description-article {
   position: absolute;
-  bottom: 20%;
-  top: 20%;
+  bottom:10%;
+  top: 10%;
   width: 350px;
+  height:auto;
   background-color: rgb(255, 255, 255, 0.5);
 }
 .description-article p {
@@ -99,7 +106,7 @@ body {
 }
 .authors {
   font-family: "Roboto", sans-serif;
-  color: #444444;
+  color: #4279e5;
   font-size: 15px;
 }
 .splide__pagination {
@@ -116,6 +123,7 @@ body {
 }
 
 /* Slider Coachs */
+
 .coachs h2 {
   text-align: center;
   text-transform: uppercase;
@@ -127,15 +135,13 @@ body {
 
 section:nth-child(2) {
   display: flex;
-  margin-top: 50px;
+  margin-bottom: 5vh;
   flex-direction: column;
   align-self: center;
   justify-content: space-evenly;
   width: 100%;
   height: auto;
   background: white;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
 }
 
@@ -143,7 +149,6 @@ section:nth-child(2) {
   display: flex;
   flex: 1;
   max-height: auto;
-  overflow-x: scroll;
   overflow-y: hidden;
   padding-top: 20px;
   padding-bottom: 15px;
@@ -152,37 +157,41 @@ section:nth-child(2) {
 .item {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    0deg,
-    rgba(66, 121, 229, 1) 35%,
-    rgba(68, 68, 68, 1) 100%
-  );
-  border-radius: 10px;
+  background: #4279e5;
   flex: 1;
   width: 250px;
-  height: 400px;
-  padding: 2%;
+  height: auto;
+  padding: 5px 10px;
   margin: 0 20px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
-
 .item-image img {
   margin-top: 15px;
   max-width: 150px;
   clip-path: ellipse(50% 50%) !important;
   filter: saturate(110%);
 }
+.item-content {
+  width: 100%;
+  background-color: #444444;
+  padding: 0px 10px;
+}
 .item-content-title {
   font-family: "Francois One", Impact, Haettenschweiler, "Arial Narrow Bold",
     sans-serif;
   letter-spacing: 2px;
+  padding-top: 5px;
+}
+.name {
+  color: #4279e5;
 }
 .item-content-description {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
 }
 .medias-coachs {
   width: 280px;
@@ -199,6 +208,42 @@ section:nth-child(2) {
   width: 20px;
   filter: brightness(200%);
 }
+/* Scrollbar sous chrome, safari */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+/* scroll bar */
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  height: 30px;
+  background-color: #4279e5;
+}
+
+/* Scrollbar sous Firefox */
+.scroller-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #4279e5 #fcf9f9;
+  border-radius: 6px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #4279e5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: #fff;
+}
+.scroller {
+  height: 50vh;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+}
 
 /* bannière call to action forum */
 .cta-forum {
@@ -210,9 +255,8 @@ section:nth-child(2) {
 .forum-img {
   width: 100%;
   height: 350px;
-  background: url("../assets/imgFeaTips/imgfooter.jpg") center;
+  background: url("../img/imgfooter.jpg") center;
   background-size: cover;
-  box-shadow: 0px 2px 5px #444444;
   display: block;
 }
 .cta-forum a {
@@ -269,10 +313,10 @@ section:nth-child(2) {
     width: 250px;
   }
   .title-article {
-    font-size: 16px;
+    font-size: 12px;
   }
   .description-text {
-    font-size: 12px;
+    font-size: 11px;
   }
   .authors {
     font-size: 1px;
@@ -285,12 +329,12 @@ section:nth-child(2) {
   }
   .grid {
     padding-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 
   .item {
     width: 200px;
-    height: 350px;
+    height: auto;
     margin: 0 15px;
   }
 
@@ -320,6 +364,9 @@ section:nth-child(2) {
   line-height: 2em;
 }
 @media screen and (max-width: 767px) {
+  body{
+    width:100%;
+  }
   .banniere-accueil-img {
     height: 150px;
   }
@@ -329,7 +376,7 @@ section:nth-child(2) {
     line-height: 2em;
   }
   .carousel {
-    padding: 2%;
+    padding: 0;
   }
   .carousel h2,
   .coachs h2 {
@@ -394,17 +441,16 @@ section:nth-child(2) {
   .medias-coachs img {
     width: 15px;
   }
-    /* banniere cta forum */
+  /* banniere cta forum */
+  .cta-forum {
+    margin-top: 20px;
+  }
+  .forum-img {
+    height: 150px;
+  }
+  .cta-forum a p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 2em;
+  }
 }
-.cta-forum {
-  margin-top: 20px;
-}
-.forum-img {
-  height: 150px;
-}
-.cta-forum a p {
-  font-size: 14px;
-  letter-spacing: 2px;
-  line-height: 2em;
-}
-

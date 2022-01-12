@@ -1,0 +1,45 @@
+body{
+    margin-top:20px;
+    background-color: lightgrey;
+}
+main{
+    padding:15px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+.main:nth-child(1){
+    margin-top:30px !important;
+    margin-bottom:30px !important;
+}
+.sidebar{
+    background-color:#444444;
+    color:white;
+    height:100%;
+}
+.sidebar a{
+    margin-left: 10px;
+    display:block;
+    color:white;
+    padding-bottom:10px;
+    font-size:20px;
+    text-decoration: none;
+}
+.sidebar a:hover{
+    text-decoration: none;
+    color:white;
+    font-weight:bolder;
+}
+.card {
+    position: relative;
+    display:flex;
+    flex-direction:column;
+    
+}
+.coach-card{
+    background-color:#444444 !important;
+}
+.content{
+background-color:#fff;
+}
+.card-body img{
+    clip-path: ellipse(50% 50%) !important;
+}

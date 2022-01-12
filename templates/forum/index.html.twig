@@ -1,32 +1,185 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Forum Featips
+{% block title %}Forum FeaTips{% endblock %}
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/forum.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
 {% endblock %}
-
-
 {% block body %}
-	{% if app.user %}
-		<div class="example-wrapper">
-			<h2>Bienvenue sur le forum de Featips !!</h2>
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>Thème</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="{{ path('posts_forum') }}">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>11 Posts | 2 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">Kenito69</a> 
+                    <br>le <small>13 Jan 2022</small>
+                </div>
+            </div>
+        </div>
+        <!--More-->
+        
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>Thème</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+               <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subforum">
+                 <div class="subforum-title">
+                <h1>Thème</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
+            <hr class="subforum-devider">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-car center"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="#">Sujet</a></h4>
+                    <p>Description du contenu: Lorem ipsum Magnam amet odit omnis deleniti similique, numquam cumque non. Expedita nihil!</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>45 Posts | 12 Sujets</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Dernier post</a></b> par <a href="">BrandonMoiLaBalle</a> 
+                    <br>le <small>12 Jan 2022</small>
+                </div>
+            </div>
 
+        </div>
+        <!---->
+    </div>
 
-			<ul>
-				{% for category in categories %}
-
-					<li>
-						<a href="{{ path('category', {'slug' : category.slug}) }} ">{{ category.name }}</a>
-					</li>
-
-				{% endfor %}
-
-			</ul>
-		</div>
-	{% else %}
-
-		<h2>
-			Veuillez vous connecter pour accéder au forum
-		</h2>
-
-	{% endif %}
+{% endblock %}
+{% block script %}
+	<script src="{{ asset('assets/js/forum.js') }}"></script>
 {% endblock %}

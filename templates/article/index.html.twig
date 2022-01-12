@@ -3,36 +3,69 @@
 {% block title %}Article{# à dynamiter #}{% endblock %}
 
 {% block stylesheetsperso %}
-    <link href="{{ asset('assets/css/singleArticle.css')  }}" rel="stylesheet">
+	<link href="{{ asset('assets/css/singleArticle.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
- {% if article.ispremium == true and app.user.ispremium == false %}
 
- cet article est résérvé aux utilisateurs Premium.
+	 {% block header %}{% endblock %}
+	<section>
+		{# <!-- <img src="{{ asset('assets/img/imgArticle.jpg') }}" alt="Image Header article" />  --> #}
 
- {% else %}
-    <main>
-        <article>
-            <h1>{{article.title }}</h1>
-            <img id="madison" src="/assets/uploads/{{ article.image }}" alt=""/>
-            <div class="content">
-                <p>
-                    {{article.content}}
-                </p>
-                <iframe width="560" height="315" src="{{article.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
-                <section>
-                    <div class="">
-                        <img src="/assets/uploads/{{ article.user.profilepic }}" alt="coach1"/>
-                        <p>Ecris pars {{article.user.firstname}}</p>
-                        <!-- Est ce qu'on fait 1 et on apellle ? -->
-                        {# <img class="mecmuscle" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach2"/>
-                        <img class="Rugbyman" src="{{ asset('assets/img/coach2.jpg')  }}" alt="coach 3"/> #}
-                    </section>
-                </div>
-            </div>
-        </article>
-    </main>
-    {%  endif %}
+			<a href="#"> Retour</a>
+	</section>
+	<main>
+		<article>
+			<h1>Titre de l'article</h1>
+			<img id="illustration" src="{{ asset('assets/img/madison-lavern-UGiAFwbxQBI-unsplash.jpg') }}" alt="Madison lavern"/>
+			<div class="content">
+				<p>
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+					            accusantium doloremque.
+					<br/>
+					Ludantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+					            veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+					            Nemo enim ipsam
+					<br/>
+					voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+					            consequuntur magni dolores eos qui ratione voluptatem sequi
+					            nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+					            amet, consectetur, adipisci velit, sed quia non numquam eius modi
+					            tempora incidunt ut labore et dolore magnam aliquam quaerat
+					            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
+					            ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+					            consequatur? Quis autem vel eum iure reprehenderit qui in ea
+					            voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+					            dolorem eum fugiat quo voluptas nulla pariatur? Eaque ipsa quae ab
+					            illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+					            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
+					            aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+					            ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+					            dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+					            quia non numquam eius modi tempora incidunt ut labore et dolore
+					            magnam aliquam quaerat voluptatem. aspernatur aut odit aut fugit,
+					            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+					            nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+					            amet, consectetur, adipisci velit, sed quia non numquam eius modi
+					            tempora incidunt ut labore et dolore magnam aliquam quaerat
+					            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
+					            ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+					            consequatur? Quis autem vel eum iure reprehenderit qui in ea
+					            voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+					            dolorem eum fugiat quo voluptas nulla pariatur?
+				</p>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/dSJY_ThHlQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<section>
+					<div class="author">
+						<img
+						class="author-pic" src="{{ asset('assets/img/coach.jpg') }}" alt="coach1"/>
+						<!-- Est ce qu'on fait 1 et on apellle ? -->
+						<img class="author-pic" src="{{ asset('assets/img/coach1.jpg') }}" alt="coach2"/>
+						<img class="author-pic" src="{{ asset('assets/img/coach2.jpg') }}" alt="coach 3"/>
+					</section>
+				</div>
+			</div>
+		</article>
+	</main>
 
 {% endblock %}
