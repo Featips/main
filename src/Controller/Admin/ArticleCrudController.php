@@ -3,6 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ArticleCrudController extends AbstractCrudController
@@ -12,14 +16,18 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            SlugField::new('slug')->setTargetFieldName('title'),
+            TextField::new('description'),
+            TextField::new('content'),
+            TextField::new('url'),
+            ImageField::new('image')->setBasePath('assets/uploads/')->setUploadDir('public/assets/uploads')->setUploadedFileNamePattern('[randomhash].[extension]'),
+            BooleanField::new('ispremium'),
         ];
     }
-    */
+    
 }

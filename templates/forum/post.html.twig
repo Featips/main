@@ -1,28 +1,25 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}{{category.name}}{% endblock %}
+{% block title %}
+	{{category.name}}
+{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <p>{{topic.content}}</p>
-    <h2>{{ post.id }}</h2>
-    <ul>
-    {% for post in posts %}
-        <li>{{ post.content }}</li>
-    {% endfor %}
-    </ul>
-    
+	{% if app.user %}
+		<div class="example-wrapper">
+			<p>{{topic.content}}</p>
+			<h2>{{ post.id }}</h2>
+			<ul>
+				{% for post in posts %}
+					<li>{{ post.content }}</li>
+				{% endfor %}
+			</ul>
 
-    
+		</div>
+	{% else %}
 
+		<h2>
+			Veuillez vous connecter pour accéder au forum
+		</h2>
 
-    {# <ul>
-        {% for category in categories %}
-
-        <li><a href="{{ path('forum', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
-        
-        {% endfor %}
-
-    </ul> #}
-</div>
+	{% endif %}
 {% endblock %}

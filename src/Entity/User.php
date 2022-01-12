@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use DateTime;
 use App\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -72,10 +71,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="datetime_immutable", options={"default": "CURRENT_TIMESTAMP"}, nullable=true)
-     */
-    private $registered_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=ForumTopic::class, mappedBy="user")
@@ -247,18 +242,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getRegisteredAt(): ?\DateTimeImmutable
-    {
-        return $this->registered_at;
-    }
-
-    public function setRegisteredAt(\DateTimeImmutable $registered_at): self
-    {
-        $this->registered_at = $registered_at;
 
         return $this;
     }

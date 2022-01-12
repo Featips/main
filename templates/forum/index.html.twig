@@ -1,21 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Forum Featips{% endblock %}
 
-{% block body %}
-<div class="example-wrapper">
-    <h2>Bienvenue sur le forum de Featips !!</h2>
-
-    
-    <ul>
-        {% for category in categories %}
-
-        <li><a href="{{ path('category', {'slug' : category.slug}) }} ">{{ category.name }}</a> </li>
-        
-        {% endfor %}
-
-    </ul>
-</div>
+{% block title %}Forum Featips
 {% endblock %}
 
 
+{% block body %}
+	{% if app.user %}
+		<div class="example-wrapper">
+			<h2>Bienvenue sur le forum de Featips !!</h2>
+
+
+			<ul>
+				{% for category in categories %}
+
+					<li>
+						<a href="{{ path('category', {'slug' : category.slug}) }} ">{{ category.name }}</a>
+					</li>
+
+				{% endfor %}
+
+			</ul>
+		</div>
+	{% else %}
+
+		<h2>
+			Veuillez vous connecter pour accéder au forum
+		</h2>
+
+	{% endif %}
+{% endblock %}

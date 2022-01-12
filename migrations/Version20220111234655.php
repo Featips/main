@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220111134916 extends AbstractMigration
+final class Version20220111234655 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20220111134916 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE forum_topic CHANGE is_locked islocked TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE article ADD image VARCHAR(255) DEFAULT NULL, ADD url VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE forum_topic CHANGE islocked is_locked TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE article DROP image, DROP url');
     }
 }

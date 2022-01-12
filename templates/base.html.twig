@@ -38,14 +38,17 @@
                                         <li>
                                             <a href="{{ path('programmes') }}">Programmes</a>
                                         </li>
+                                        {% if app.user %}
                                         <li>
                                             <a href="{{ path('forum') }}">Forum</a>
                                         </li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                                 {% if app.user %}
                                     <div class="mb-3">
-                                        bienvenue {{ app.user.username }}, 
+                                        bienvenue , 
+                                        <a href="{{ path('account') }}"> {{ app.user.username }}</a>
                                         <div class="btn btn-1"><a href="{{ path('app_logout') }}">Logout</a> </div>
                                     </div>
 

@@ -42,12 +42,7 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $ispremium;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $created_at;
+    private $ispremium = false;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="articles")
@@ -63,6 +58,16 @@ class Article
      * @ORM\ManyToMany(targetEntity=User::class, inversedBy="articles")
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
 
     public function __construct()
     {
@@ -131,19 +136,7 @@ class Article
 
     public function setIsPremium(bool $ispremium): self
     {
-        $this->is_premium = $ispremium;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
-    {
-        $this->created_at = $created_at;
+        $this->ispremium = $ispremium;
 
         return $this;
     }
@@ -216,6 +209,30 @@ class Article
     public function removeUser(User $user): self
     {
         $this->user->removeElement($user);
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }

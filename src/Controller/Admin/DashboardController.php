@@ -2,18 +2,19 @@
 
 namespace App\Controller\Admin;
 
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\User;
+use App\Entity\Article;
+use App\Entity\Program;
+use App\Entity\Category;
+use App\Entity\ForumPost;
+use App\Entity\ForumTopic;
+use App\Entity\ForumCategory;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\User;
-use App\Entity\Category;
-use App\Entity\Program;
-use App\Entity\Article;
-use App\Entity\ForumCategory;
-use App\Entity\ForumTopic;
-use App\Entity\ForumPost;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 
 class DashboardController extends AbstractDashboardController
