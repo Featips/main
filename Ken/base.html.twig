@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Welcome!{% endblock %}
+        </title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {% block stylesheetsperso %}{% endblock %}
+            <link href="{{ asset('assets/css/header.css')  }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/footer.css')  }}" rel="stylesheet">
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+<header>
+ <nav>
+        <div id="logo"><a href="{{ path('home') }}"><img class="featips-logo" src="{{ asset('assets/img/logo3.png' )  }}" alt="FeaTips-Logo" /></a></div>
+
+        <input type="checkbox" id="drop" />
+            <ul class="menu">
+                <li class="main-menu">
+                    <label for="drop-1" class="toggle">Articles</label>
+                    <a href="{{ path('articles') }}">Articles</a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul id="list-filter-article">
+                        <li><a href="#">Par coach</a></li>
+                        <li><a href="#">Par sport</a></li>
+                    </ul> 
+                </li>
+        
+                <li  class="main-menu">
+                <label for="drop-2" class="toggle">Programmes</label>
+                <a href="{{ path('programmes') }}">Programmes</a>
+                <input type="checkbox" id="drop-2"/>
+                <ul id="list-programmes">
+                    <li><a href="#">Objectif sèche</a></li>
+                    <li><a href="#">Améliorer son cardio</a></li>
+                    <li><a href="#">Améliorer sa technique de grimpe</a></li>
+                    <li><a href="#">1 mois pour devenir plus souple</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <label for="drop-3" class="toggle">Coachs</label>
+                    <a href="{{ path('coachs') }}">Coachs</a>
+                    <input type="checkbox" id="drop-1"/>
+                    <ul id="list-filter-article">
+                        <li><a href="#">Tibo Inshape</a></li>
+                        <li><a href="#">Sissy Mua</a></li>
+                    </ul> 
+                </li>
+                <li id="forum"><a href="{{ path('forum') }}">Forum</a></li>
+                
+
+               
+                <li id="login-btn"><a href="{{ path('app_login') }}">Se Connecter</a></li>
+                <li id="register-btn"><a href="{{ path('app_register') }}">S'inscrire</a></li>
+               
+            </ul>
+        </nav>
+
+</header>
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}
+            <footer>
+                <div class="contenu-footer">
+
+                    <div class="footer-medias">
+                        <ul class="liste-medias">
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/facebook-icon.png')  }}" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="icones réseaux sociaux"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="icones réseaux sociaux"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bloc">
+                        <div class="footer-services">
+                            <span>SERVICES</span>
+                            <ul class="liste-services">
+                                <li>
+                                    <a href="{{ path('articles') }}">Articles</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('programmes') }}">Programmes</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('coachs') }}">Nos coachs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-infos">
+                            <span>INFORMATIONS PRATIQUES</span>
+                            <ul class="liste-infos">
+                                <li>
+                                    <a href="{{ path('contact_form') }}">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="#">Devenir membre Premium</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('become_coach') }}">Devenir coach</a>
+                                </li>
+                                <li>
+                                    <a href="mentions_legales#mentions-legales">Mentions légales</a>
+                                </li>
+                                <li>
+                                    <a href="mentions_legales#cgv">Conditions générales de vente </a>
+                                </li>
+                                <li>
+                                    <a href="mentions_legales#protection-des-donnees">Protection des données</a>
+                                </li>
+                                <li>
+                                    <a href="mentions_legales#modalites-paiement">Paiement sécurisé</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        {% endblock %}
+
+    </body>
+    {% block script %}{% endblock %}
+</html>

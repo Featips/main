@@ -1,18 +1,102 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rejoignez nous !{% endblock %}
-
+{% block title %}Devenir Coach{% endblock %}
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/devenirCoach.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block body %}
-    <h2>rejoingez note équipe
-    </h2>
-    {{ form_start(BecomeCoach) }}
+    <center>
+      <fieldset>
+        <h1>Devenir Coach</h1>
+        <hr />
+        <table>
+          <tr>
+            <td>Nom :</td>
+            <td>
+              <input
+                type="text"
+                placeholder="Entrez votre nom"
+                size="50"
+                id="Nom"
+                required
+              />
+            </td>
+            <br /><br />
+          </tr>
+          <tr>
+            <td>Prénom :</td>
+            <td>
+              <input
+                type="text"
+                placeholder="Entrez votre prénom"
+                size="50"
+                id="Prenom"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>E-mail :</td>
+            <td>
+              <input
+                type="url"
+                placeholder="Entrez votre e-mail"
+                size="50"
+                id="YTB"
+                required
+              />
+            </td>
+          </tr>
 
-    {{ form_row(BecomeCoach.firstname) }}
-    {{ form_row(BecomeCoach.lastname) }}
-    {{ form_row(BecomeCoach.email) }}
-    {{ form_row(BecomeCoach.cv) }}
-    {{ form_row(BecomeCoach.texte) }}
-
-    <button type="submit" class="btn">Evoyer</button>
-    {{ form_end(BecomeCoach) }}
+          <tr>
+            <td>Dernier(s) diplome(s) obtenus</td>
+            <td>
+              <input
+                type="text"
+                placeholder="Dernier(s) diplome(s) obtenus"
+                size="50"
+                id="toktok"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../assets/instagram-icon.png" alt="Logo instagram" />
+            </td>
+            <td>
+              <input
+                type="url"
+                placeholder="Veuillez mettre votre lien instagram"
+              required  />
+            </td>
+          </tr>
+          <tr>
+            <td> <img src="../assets/youtube-icon.png" alt="YTB"></td>
+            <td>
+                <input type="url"
+                placeholder="Mettez votre lien youtube"
+                required>
+            </td>
+          </tr>
+          <tr>
+            <td>A propos de moi</td>
+            <td><input type="text" 
+                placeholder="Décrivez vous en quelques mots..."
+                size="50"
+                id="About_me"
+                required/>
+                
+            </td>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                  <input type="submit" id="submit" name="" value="Envoyer ma demande" />
+                </td>
+              </tr>
+        </table>
+      </fieldset>
+    </center>
 {% endblock %}

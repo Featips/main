@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+}
+fieldset {
+  margin-top: 70px;
+  width: 27%;
+  background-color: white;
+  box-shadow: 5px 5px 20px 1px #a3a2a2;
+  border: solid 2px #4279e5;
+  padding-left: 10px;
+  /* border-radius: 5px 5px 5px 5px; */
+  color: #444444;
+  height: 300px;
+}
+td {
+  letter-spacing: 1px;
+}
+h1 {
+  font-family: "Francois One";
+  letter-spacing: 2px;
+  text-align: center;
+  color: #4279e5;
+}
+hr {
+  border: 1px solid #444444;
+  border-radius: 10px;
+  width: 50%;
+}
+ul li {
+  margin-left: 20px;
+  color: #444444;
+}
+#submit {
+  margin: 20px 35px;
+  color: #4279e5;
+  background-color: white;
+  width: 80%;
+  font-size: 17px;
+  /* border-radius: 20px; */
+  border: 1px solid #4279e5;
+  padding: 10px;
+}
+#submit:hover {
+  color: white;
+  background-color: #444444;
+}
+input {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid black;
+  color: #444444;
+  width: 100%;
+}

@@ -1,0 +1,256 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("assets/fonts/Roboto-Regular.ttf") format("ttf");
+}
+
+body {
+  font-size: 22px;
+  line-height: 32px;
+  color: #444444;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word !important;
+  font-family: "Roboto Regular", "Open Sans", sans-serif;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+#container {
+  margin: 0 auto;
+  max-width: 890px;
+}
+p {
+  text-align: center;
+}
+.toggle,
+[id^="drop"] {
+  display: none;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom:solid 2px #444444;
+}
+#logo {
+  display: block;
+  padding: 0 30px;
+  float: left;
+}
+#logo img {
+  width: 200px;
+}
+/* Il y a un "ul li" en "float:left"
+ * Il faut donc ajouter un "clear" après le container. */
+
+nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.menu {
+  width: 70%;
+}
+#login-btn {
+  margin-left: auto;
+}
+#login-btn a {
+  color: #4279e5;
+  margin-right: 30px;
+  padding: 5px 10px;
+}
+#login-btn:hover {
+  color: #444444;
+  font-weight: bolder;
+}
+#register-btn a {
+  color: #4279e5;
+  border: solid 2px #4279e5;
+  padding: 5px 10px;
+}
+#register-btn:hover {
+  font-weight: bolder;
+}
+nav ul li {
+  margin: 0px;
+  display: inline-block;
+}
+#list-filter-article,
+#list-programmes {
+  z-index: 1000;
+}
+
+/* Styling the links */
+nav a {
+  display: block;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #444444;
+  font-size: 20px;
+  text-decoration: none;
+}
+.main-menu a,
+#forum a {
+  padding: 10px 15px;
+}
+.main-menu a:hover,
+#forum a:hover {
+  background: #4279e5;
+  color: white;
+  text-decoration: none;
+}
+
+/* on cache le dropdown menu et on le positionne */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 60px;
+}
+
+/* pas le même hover pour le dropdow menu */
+nav ul li:hover > ul {
+  display: inherit;
+}
+
+/* Premier menu déroulant */
+nav ul ul li {
+  width: 170px;
+  float: none;
+  display: list-item;
+  position: relative;
+  background: #fff;
+}
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width: 768px) {
+  .toggle + a,
+  .menu {
+    display: none;
+  }
+
+  /* on donne un style au toggle */
+  .toggle {
+    display: block;
+    padding: 14px 20px;
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+  }
+
+  .toggle:hover {
+    background-color: #4279e5;
+  }
+
+  /* affiche le menu déroulant */
+  [id^="drop"]:checked + ul {
+    display: block;
+  }
+
+  nav ul ul .toggle,
+  nav ul ul a {
+    padding: 0 40px;
+  }
+
+  nav ul ul ul a {
+    padding: 0 80px;
+  }
+
+  nav a:hover,
+  nav ul ul ul a {
+    background-color: #4279e5;
+  }
+
+  nav ul li ul li .toggle,
+  nav ul ul a,
+  nav ul ul ul a {
+    padding: 14px 20px;
+    color: #fff;
+    font-size: 17px;
+  }
+
+  nav ul li ul li .toggle,
+  nav ul ul a {
+    background-color: #4279e5;
+  }
+
+  /* On cache le menu déroulant par défaut */
+  nav ul ul {
+    float: none;
+    position: static;
+    color: #ffffff;
+    /* has to be the same number as the "line-height" of "nav a" */
+  }
+
+  /* Hide menus on hover */
+  nav ul ul li:hover > ul,
+  nav ul li:hover > ul {
+    display: none;
+  }
+
+  /* Fisrt Tier Dropdown */
+  nav ul ul li {
+    display: block;
+    width: 100%;
+  }
+
+  nav ul ul ul li {
+    position: static;
+    /* has to be the same number as the "width" of "nav ul ul li" */
+  }
+  #login-btn a {
+	margin-right: 20px;
+	padding: 5px 10px;
+	font-size: 18px;
+  }
+  #login-btn:hover {
+	color: #444444;
+	font-weight: bolder;
+  }
+  #register-btn{
+	  margin-top:5px;
+  }
+  #register-btn a {
+	padding: 3px 10px;
+	font-size: 18px;
+  }
+}
+
+@media all and (max-width: 330px) {
+  nav ul li {
+    display: block;
+    width: 94%;
+  }
+  #login-btn a {
+	margin-right: 20px;
+	padding: 5px 10px;
+	font-size:18px;
+  }
+  #login-btn:hover {
+	color: #444444;
+	font-weight: bolder;
+  }
+  #register-btn a{
+	padding: 3px 10px;
+	font-size: 18px;
+  }
+}

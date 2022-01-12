@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-family: "Francois One";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #444444;
+}
+#illustration {
+  display: flex;
+  text-align: center;
+  margin: auto;
+  width: 1200px;
+  height: 450px;
+  top: 50px;
+  object-fit: cover;
+  object-position: 0 -350px;
+}
+.content {
+  background: rgba(127, 203, 226, 0.11);
+  
+}
+p {
+  width: 900px;
+  height: 1100px;
+  left: 240px;
+  top: 782px;
+
+  font-family: "roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 50px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0, 05em;
+  margin: auto;
+
+  color: #000000;
+}
+iframe {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+section img {
+  width: 400px;
+  height: 400px;
+}
+.author {
+  width : 75% 75%;
+  display: flex;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.author-pic img {
+  object-fit: cover;
+  object-position: center;
+  max-width: 150px;
+  clip-path: ellipse(50% 50%) !important;
+  filter: saturate(110%);
+} 
+  
