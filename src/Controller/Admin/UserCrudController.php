@@ -25,6 +25,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('lastname'),
             ImageField::new('profilepic')->setBasePath('assets/uploads/')->setUploadDir('public/assets/uploads')->setUploadedFileNamePattern('[randomhash].[extension]'),
             BooleanField::new('ispremium'),
+            BooleanField::new('iscoach'),
             TextField::new('email'),
         ];
     }

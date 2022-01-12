@@ -81,6 +81,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $iscoach = false;
+
     public function __construct()
     {
         
@@ -309,6 +314,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $article->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIscoach(): ?bool
+    {
+        return $this->iscoach;
+    }
+
+    public function setIscoach(bool $iscoach): self
+    {
+        $this->iscoach = $iscoach;
 
         return $this;
     }

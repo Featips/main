@@ -19,11 +19,11 @@ class ProgrammesController extends AbstractController
     #[Route('/programmes', name: 'programmes')]
     public function index(): Response
     {
-        $programmes = $this->entityManager->getRepository(Program::class)->findAll();
-
+        $articles = $this->entityManager->getRepository(Article::class)->findAll();
+        $programs = $this->entityManager->getRepository(Program::class)->findAll();
 
         return $this->render('programmes/index.html.twig', [
-            'programmes' => $programmes,
+            'programs' => $programs, 'articles' => $articles,
         ]);
     }
 }
