@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticlesController!{% endblock %}
+{% block title %}Hello ArticlesController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<ul>
+		{% for article in articles %}
+			{% if article.category.id == 1 %}
+				<h2>
+					{{article.category.name}}
+				</h2>
+				<li>
+                    <br>
+					<h3>{{article.title}}</h3>
+					<img src="assets/uploads/{{article.image}}" width="50px">
+					{% if article.ispremium == true and app.user.ispremium == false %}
+						Devenez premium pour accéder a cet article
+					{% else %}
+						<a href="{{ path('article', {'slug' : article.slug}) }} ">{{ article.slug }}</a>
+					{% endif %}
+				</li>
+			{% else %}
+				{{article.category.name}}
+				{{article.title}}
+			{% endif %}
+		{% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/main/src/Controller/ArticlesController.php'|file_link(0) }}">src/Controller/ArticlesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/main/templates/articles/index.html.twig'|file_link(0) }}">templates/articles/index.html.twig</a></code></li>
-    </ul>
-</div>
+	</ul>
 {% endblock %}

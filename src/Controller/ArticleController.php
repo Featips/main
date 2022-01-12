@@ -24,14 +24,23 @@ class ArticleController extends AbstractController
             'articles' => $articles,
         ]);
     }
+    // #[Route('/programmes', name: 'programmes')]
+    // public function find(): Response
+    // {
+    //     $programmes = $this->entityManager->getRepository(Article::class)->findAll();
 
+
+    //     return $this->render('programmes/index.html.twig', [
+    //         'programmes' => $programmes,
+    //     ]);
+    // }
     #[Route('/article/{slug}', name: 'article')]
     public function show($slug ): Response
     {
         $article = $this->entityManager->getRepository(Article::class)->findOneBySlug($slug);
         if(!$article)
         {
-            return $this->redirectToRoute('articles');
+            return $this->redirectToRoute('/articles');
         } 
         return $this->render('article/index.html.twig', [
             'article' => $article,
