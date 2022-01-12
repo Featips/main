@@ -1,34 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProgrammesController!{% endblock %}
-
-{% block body %}
-
-    <ul>
-        {% for program in programs %}
-            <h2>{{ program.name}}</h2>
-
-            {% for article in articles %}
-                {% if article.program == program %}
-                    <li>
-                        <h3>{{article.title}}</h3>
-                        <img src="assets/uploads/{{article.image}}" width="50px" alt="une image lier à {{article.title}}">
-                        {% if article.ispremium == true and app.user.ispremium == false %}
-                            Devenez premium pour accéder a cet article
-                        {% else %}
-                            <a href="{{ path('article', {'slug' : article.slug}) }} ">{{ article.slug }}</a>
-                        {% endif %}
-                    </li>
-                {% endif %}
-
-            {% endfor %}
-
-        {% endfor %}
-
-    </ul>
-{% endblock %}{% extends 'base.html.twig' %}
-
-{% block title %}Hello ProgrammesController!{% endblock %}
 {% block stylesheetsperso %}
     <link href="{{ asset('assets/css/programme.css')  }}" rel="stylesheet">
     <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css')  }}" rel="stylesheet">
