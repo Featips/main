@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/forum.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+<div class="container">
+        <!--Navigation-->
+        <div class="navigate">
+            <span><a href="{{ path('forum') }}">Forum - Thèmes</a> >> <a href="{{ path('posts_forum') }}">Posts</a></span>
+        </div>
+        <!--Afficher les tables des posts-->
+        <div class="posts-table">
+            <div class="table-head">
+                <div class="status">Status</div>
+                <div class="subjects">Sujets</div>
+                <div class="replies">Réponses/vus</div>
+                <div class="last-reply">Dernière réponse</div>
+            </div>
+            <div class="table-row">
+                <div class="status"><i class="fa fa-fire"></i></div>
+                <div class="subjects">
+                    <a href="{{ path('details_forum') }}">Comment s'équiper pour grimper en montagne?</a>
+                    <br>
+                    <span>Créé par <b><a href="">Utilisateur</a></b> .</span>
+                </div>
+                <div class="replies">
+                    2 réponses <br> 125 vus
+                </div>
+
+                <div class="last-reply">
+                    Oct 12 2021
+                    <br>par <b><a href="">Utilisateur</a></b>
+                </div>
+            </div>
+            <!--Commence here-->
+            <div class="table-row">
+                <div class="status"><i class="fa fa-fire"></i></div>
+                <div class="subjects">
+                    <a href="">Comment s'équiper pour grimper en montagne?</a>
+                    <br>
+                    <span>Créé par <b><a href="">Utilisateur</a></b> .</span>
+                </div>
+                <div class="replies">
+                    2 réponses <br> 125 vus
+                </div>
+
+                <div class="last-reply">
+                    Oct 12 2021
+                    <br>par <b><a href="">Utilisateur</a></b>
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div class="status"><i class="fa fa-fire"></i></div>
+                <div class="subjects">
+                    <a href="">Comment s'équiper pour grimper en montagne?</a>
+                    <br>
+                    <span>Créé par <b><a href="">Utilisateur</a></b> .</span>
+                </div>
+                <div class="replies">
+                    2 réponses <br> 125 vus
+                </div>
+
+                <div class="last-reply">
+                    Oct 12 2021
+                    <br>par <b><a href="">Utilisateur</a></b>
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div class="status"><i class="fa fa-fire"></i></div>
+                <div class="subjects">
+                    <a href="">Comment s'équiper pour grimper en montagne?</a>
+                    <br>
+                    <span>Créé par <b><a href="">Utilisateur</a></b> .</span>
+                </div>
+                <div class="replies">
+                    2 réponses <br> 125 vus
+                </div>
+
+                <div class="last-reply">
+                    Oct 12 2021
+                    <br>par <b><a href="">Utilisateur</a></b>
+                </div>
+            </div>
+            </div>
+            <!--Finis ici-->
+        </div>
+        <!--Pagination-->
+            <div class="pagination">
+                pages: <a href="">1</a><a href="">2</a><a href="">3</a>
+            </div>
+        <!-- Fin de pagination -->
+    </div>
+{% endblock %}
+{% block script %}
+	<script src="{{ asset('assets/js/forum.js') }}"></script>
+{% endblock %}

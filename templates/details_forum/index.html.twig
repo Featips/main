@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum - Détails{% endblock %}
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/forum.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+ <div class="container">
+        <!--Navigation-->
+        <div class="navigate">
+            <span><a href="{{ path('forum') }}">Forum - Thèmes</a> >> <a href="{{ path('posts_forum') }}">Posts</a> >> <a href="{{ path('details_forum') }}">Sujets</a></span>
+        </div>
+
+        <!--Topic Section-->
+        <div class="topic-container">
+            <!--Original thread-->
+            <div class="head">
+                <div class="authors">Auteur</div>
+                <div class="content">Sujet Lorem ipsum dolor (Read 1325 Times)</div>
+            </div>
+
+            <div class="body">
+                <div class="authors">
+                    <div class="username"><a href="">Pseudo</a></div>
+                    <div>Role</div>
+                <img src="{{ asset('assets/img/coach1.jpg') }}" alt="coach 6">
+                    <div>Posts: <u>45</u></div>
+                </div>
+                <div class="content">
+                    Contenu du sujet Lorem ipsum dolor sit amet consectetur, 
+                    <br>adipisicing elit. Necessitatibus, rerum.
+                    <br><br>
+                    Lorem ipsum dolor sit amet.
+                    <br>
+                    <hr>
+                    Regards Utilisateur
+                    <br>
+                    <div class="comment">
+                        <button onclick="showComment()">Commentaires</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Comment Area-->
+        <div class="comment-area hide" id="comment-area">
+            <textarea name="comment" id="" placeholder="commenter ici ... "></textarea>
+            <input type="submit" value="submit">
+        </div>
+
+        <!--Comments Section-->
+        <div class="comments-container">
+            <div class="body">
+                <div class="authors">
+                    <div class="username"><a href="">AutreUtilisateur</a></div>
+                    <div>Role</div>
+                    <img src="{{ asset('assets/img/coach3.jpg') }}" alt="coach 6">
+                    <div>Posts: <u>455</u></div>
+                </div>
+                <div class="content">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    <br>Libero in placeat ipsa accusamus!
+                    <br><br>
+                    Nothing more and nothing less.
+                    <br>
+                    <br>
+                    <div class="comment">
+                        <button onclick="showReply()">Répondre</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Reply Area-->
+        <div class="comment-area hide" id="reply-area">
+            <textarea name="reply" id="" placeholder="Répondre ici ... "></textarea>
+            <input type="submit" value="submit">
+        </div>
+
+
+        <!--Another Comment With replies-->
+        <div class="comments-container">
+            <div class="body">
+                 <div class="authors">
+                    <div class="username"><a href="">AutreUtilisateur</a></div>
+                    <div>Role</div>
+                    <img src="{{ asset('assets/img/coach4.jpg') }}" alt="coach 5">
+                    <div>Posts: <u>455</u></div>
+                </div>
+                <div class="content">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    <br>Libero in placeat ipsa accusamus!
+                    <br><br>
+                    Nothing more and nothing less.
+                    <br>
+                    <br>
+                    <div class="comment">
+                        <button onclick="showReply()">Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Reply Area-->
+        <div class="comment-area hide" id="reply-area">
+            <textarea name="reply" id="" placeholder="reply here ... "></textarea>
+            <input type="submit" value="submit">
+        </div>
+
+        
+
+    </div>
+{% endblock %}
+{% block script %}
+	<script src="{{ asset('assets/js/forum.js') }}"></script>
+{% endblock %}

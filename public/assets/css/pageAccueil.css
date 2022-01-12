@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Roboto&display=swap");
 
-
 body {
   margin: 0;
   padding: 0;
@@ -9,15 +8,15 @@ body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   justify-content: space-evenly;
-  width:100%;
+  width: 100%;
 }
 
 /* bannière d'accueil */
 .banniere-accueil {
   position: relative;
   display: inline-block;
-  z-index:2;
-  width:100%;
+  z-index: 2;
+  width: 100%;
 }
 .banniere-accueil-img {
   width: 100%;
@@ -45,16 +44,18 @@ body {
 }
 
 /* slider articles à la une */
-main{
+main {
   display: flex;
   justify-content: center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 .carousel {
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
   margin: 5vh;
   padding-top: 20px;
-  padding-left: 30px;
   padding-bottom: 10px;
   background-color: rgba(44, 44, 44);
 }
@@ -77,14 +78,15 @@ main{
 .splide__slide img {
   width: 350px;
   height: 350px;
-  margin-bottom:15px;
+  /* margin-bottom: 15px; */
   object-fit: cover;
 }
 .description-article {
   position: absolute;
-  bottom: 20%;
-  top: 20%;
+  bottom:10%;
+  top: 10%;
   width: 350px;
+  height:auto;
   background-color: rgb(255, 255, 255, 0.5);
 }
 .description-article p {
@@ -133,7 +135,7 @@ main{
 
 section:nth-child(2) {
   display: flex;
-  margin-bottom:5vh;
+  margin-bottom: 5vh;
   flex-direction: column;
   align-self: center;
   justify-content: space-evenly;
@@ -158,7 +160,7 @@ section:nth-child(2) {
   background: #4279e5;
   flex: 1;
   width: 250px;
-  height: 400px;
+  height: auto;
   padding: 5px 10px;
   margin: 0 20px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -173,7 +175,7 @@ section:nth-child(2) {
   clip-path: ellipse(50% 50%) !important;
   filter: saturate(110%);
 }
-.item-content{
+.item-content {
   width: 100%;
   background-color: #444444;
   padding: 0px 10px;
@@ -184,8 +186,8 @@ section:nth-child(2) {
   letter-spacing: 2px;
   padding-top: 5px;
 }
-.name{
-  color:#4279e5;
+.name {
+  color: #4279e5;
 }
 .item-content-description {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -208,41 +210,40 @@ section:nth-child(2) {
 }
 /* Scrollbar sous chrome, safari */
 ::-webkit-scrollbar {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 /* scroll bar */
 ::-webkit-scrollbar-track-piece {
-    background-color: #fff;
+  background-color: #fff;
 }
 
-::-webkit-scrollbar-thumb:horizontal{
-    height: 30px;
-    background-color:#4279e5;
+::-webkit-scrollbar-thumb:horizontal {
+  height: 30px;
+  background-color: #4279e5;
 }
 
 /* Scrollbar sous Firefox */
 .scroller-custom {
-    scrollbar-width: thin;
-    scrollbar-color: #4279e5 #fcf9f9;
-    border-radius: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #4279e5 #fcf9f9;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: #4279e5;
+  background: #4279e5;
 }
 ::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: #fff;
+  border-radius: 6px;
+  background: #fff;
 }
 .scroller {
-
-    height:50vh;
-    overflow-x:scroll;
-    scrollbar-width:thin;
-  }
+  height: 50vh;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+}
 
 /* bannière call to action forum */
 .cta-forum {
@@ -312,10 +313,10 @@ section:nth-child(2) {
     width: 250px;
   }
   .title-article {
-    font-size: 16px;
+    font-size: 12px;
   }
   .description-text {
-    font-size: 12px;
+    font-size: 11px;
   }
   .authors {
     font-size: 1px;
@@ -328,12 +329,12 @@ section:nth-child(2) {
   }
   .grid {
     padding-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 
   .item {
     width: 200px;
-    height: 350px;
+    height: auto;
     margin: 0 15px;
   }
 
@@ -363,6 +364,9 @@ section:nth-child(2) {
   line-height: 2em;
 }
 @media screen and (max-width: 767px) {
+  body{
+    width:100%;
+  }
   .banniere-accueil-img {
     height: 150px;
   }
@@ -372,7 +376,7 @@ section:nth-child(2) {
     line-height: 2em;
   }
   .carousel {
-    padding: 2%;
+    padding: 0;
   }
   .carousel h2,
   .coachs h2 {
@@ -437,16 +441,16 @@ section:nth-child(2) {
   .medias-coachs img {
     width: 15px;
   }
-    /* banniere cta forum */
-.cta-forum {
-  margin-top: 20px;
-}
-.forum-img {
-  height: 150px;
-}
-.cta-forum a p {
-  font-size: 14px;
-  letter-spacing: 2px;
-  line-height: 2em;
-}
+  /* banniere cta forum */
+  .cta-forum {
+    margin-top: 20px;
+  }
+  .forum-img {
+    height: 150px;
+  }
+  .cta-forum a p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 2em;
+  }
 }

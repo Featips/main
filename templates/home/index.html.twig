@@ -1,242 +1,260 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil FeaTips!{% endblock %}
+{% block title %}Accueil FeaTips!
+{% endblock %}
 
 {% block stylesheetsperso %}
-    <link href="{{ asset('assets/css/pageAccueil.css')  }}" rel="stylesheet">
-    <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css')  }}" rel="stylesheet">
-    {{ encore_entry_link_tags('app') }}
+	<link href="{{ asset('assets/css/pageAccueil.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
 {% endblock %}
 
 {% block body %}
-   <div class="banniere-accueil">
-    <div class="banniere-accueil-img"></div>
-    <p>Bienvenue sur <span id="brand1">FeaTips.fr</span>. <br>Apprenez à devenir votre propre coach sportif !</p>
-  </div>
-  <main>
-    <section class="carousel">
-      <h2>Articles à la une</h2>
-      <div class="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/course.jpg')  }}" alt="course" />
-                <div class="description-article">
-                  <p class="title-article">Titre de l'article</p>
-                  <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
-                  <p class="authors">Auteurs</p>
-                </div>
-              </a></li>
-            <li class="splide__slide"><a href="#"><img src="{{ asset('assets/img/course.jpg')  }}" alt="course" />
-                <div class="description-article">
-                  <p class="title-article">Titre de l'article</p>
-                  <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
-                  <p class="authors">Auteurs</p>
-                </div>
-              </a></li>
-            <li class="splide__slide"><a href="#">
-                <img src="{{ asset('assets/img/course.jpg')  }}" alt="course" />
-                <div class="description-article">
-                  <p class="title-article">Titre de l'article</p>
-                  <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
-                  <p class="authors">Auteurs</p>
-                </div>
-              </a></li>
-            <li class="splide__slide"><a href="#">
-                <img src="{{ asset('assets/img/course.jpg')  }}" alt="course" />
-                <div class="description-article">
-                  <p class="title-article">Titre de l'article</p>
-                  <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
-                  <p class="authors">Auteurs</p>
-                </div>
-              </a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="coachs scroller scroller-custom">
-      <h2>Nos coachs</h2>
-      <div class="grid">
-        <div class="item">
-          <div class="item-image">
-            <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
+	<div class="banniere-accueil">
+		<div class="banniere-accueil-img"></div>
+		<p>Bienvenue sur
+			<span id="brand1">FeaTips.fr</span>.
+			<br>Apprenez à devenir votre propre coach sportif !</p>
+	</div>
+	<main>
+		<section class="carousel">
+			<h2>Articles à la une</h2>
+			<div class="splide">
+				<div class="splide__track">
+					<ul class="splide__list">
+						<li class="splide__slide">
+							<a href="#"><img src="{{ asset('assets/img/course.jpg') }}" alt="course"/>
+								<div class="description-article">
+									<p class="title-article">Titre de l'article</p>
+									<p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+									<p class="authors">Auteurs</p>
+								</div>
+							</a>
+						</li>
+						<li class="splide__slide">
+							<a href="#"><img src="{{ asset('assets/img/course.jpg') }}" alt="course"/>
+								<div class="description-article">
+									<p class="title-article">Titre de l'article</p>
+									<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+									<p class="authors">Auteurs</p>
+								</div>
+							</a>
+						</li>
+						<li class="splide__slide">
+							<a href="#">
+								<img src="{{ asset('assets/img/course.jpg') }}" alt="course"/>
+								<div class="description-article">
+									<p class="title-article">Titre de l'article</p>
+									<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+									<p class="authors">Auteurs</p>
+								</div>
+							</a>
+						</li>
+						<li class="splide__slide">
+							<a href="#">
+								<img src="{{ asset('assets/img/course.jpg') }}" alt="course"/>
+								<div class="description-article">
+									<p class="title-article">Titre de l'article</p>
+									<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+									<p class="authors">Auteurs</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="coachs scroller scroller-custom">
+			<h2>Nos coachs</h2>
+			<div class="grid">
 
-            <a href="#">
-              <h4 class="item-content-title">
-            </a>
-           John <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-            <div class="medias-coachs">
-              <ul class="liste-medias-coachs">
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-              </ul>
-            </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
-            <h4 class="item-content-title">
-              Jane <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-          <div class="medias-coachs">
-            <ul class="liste-medias-coachs">
-               <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
-            <h4 class="item-content-title">
-              John <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-          <div class="medias-coachs">
-            <ul class="liste-medias-coachs">
-              <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-           <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
 
-            <h4 class="item-content-title">
-              Jane <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-          <div class="medias-coachs">
-            <ul class="liste-medias-coachs">
-               <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-          <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
-            <h4 class="item-content-title">
-              John <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-          <div class="medias-coachs">
-            <ul class="liste-medias-coachs">
-              <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-            </ul>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-image">
-            <img src="{{ asset('assets/img/coach6.jpg')  }}" alt="coach 1">
-          </div>
-          <div class="item-content">
-            <a href="#">
-              <h4 class="item-content-title">
-            </a>
-            John <span class="name">Doe</span>
-            </h4>
-            <p class="item-content-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Fusce vel malesuada risus, sit amet pharetra dolor.
-            </p>
-          </div>
-          <div class="medias-coachs">
-            <ul class="liste-medias-coachs">
-               <li>
-                  <a href="#"><img src="{{ asset('assets/medias/instagram-icon.png')  }}" alt="Logo instagram" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/youtube-icon.png')  }}" alt="Logo Youtube" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png')  }}" alt="Logo tiktok" /></a>
-                </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="cta-forum">
-      <div class="forum-img"></div>
-      <a href="#">
-        <p>Rejoignez la communauté <span id="brand2">FeaTips</span> et entraidez-vous<br>dans notre Forum dédié !</p>
-      </a>
-    </section>
-  </main>
+						<a href="#">
+							<h4 class="item-content-title"></a>
+							John
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
+						<h4 class="item-content-title">
+							Jane
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
+						<h4 class="item-content-title">
+							John
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
+
+						<h4 class="item-content-title">
+							Jane
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
+						<h4 class="item-content-title">
+							John
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-image">
+						<img src="{{ asset('assets/img/coach6.jpg') }}" alt="coach 1">
+					</div>
+					<div class="item-content">
+						<a href="#">
+							<h4 class="item-content-title"></a>
+							John
+							<span class="name">Doe</span>
+						</h4>
+						<p class="item-content-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							              Fusce vel malesuada risus, sit amet pharetra dolor.
+						</p>
+					</div>
+					<div class="medias-coachs">
+						<ul class="liste-medias-coachs">
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/instagram-icon.png') }}" alt="Logo instagram"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/youtube-icon.png') }}" alt="Logo Youtube"/></a>
+							</li>
+							<li>
+								<a href="#"><img src="{{ asset('assets/medias/tiktok-icon.png') }}" alt="Logo tiktok"/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta-forum">
+			<div class="forum-img"></div>
+			<a href="#">
+				<p>Rejoignez la communauté
+					<span id="brand2">FeaTips</span>
+					et entraidez-vous<br>dans notre Forum dédié !</p>
+			</a>
+		</section>
+	</main>
 
 {% endblock %}
 
 {% block script %}
-<script src="{{ asset('assets/js/splide-3.6.9/dist/js/splide.min.js')  }}"></script>
-<script src="{{ asset('assets/js/script.js')  }}"></script>
+	<script src="{{ asset('assets/js/splide-3.6.9/dist/js/splide.min.js') }}"></script>
+	<script src="{{ asset('assets/js/script.js') }}"></script>
 {% endblock %}
