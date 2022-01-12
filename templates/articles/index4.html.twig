@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticlesController!
+{% endblock %}
+{% block stylesheetsperso %}
+    <link href="{{ asset('assets/css/pageArticles.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/js/splide-3.6.9/dist/css/splide.min.css') }}" rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+    <div class="banniere-article">
+        <div class="banniere-article-img"></div>
+        <div class="filter-article">
+            <ul class="filter-all-articles">
+                <li id="filter">Filtrer :</li>
+                <li class="filter-sport">
+                    <a href="#">Par Sport ▼</a>
+                    <ul class="list-sport">
+
+                        <li>
+                            <a href="#">Basketball</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="filter-coachs">
+                    <a href="#">Par Coach ▼</a>
+                    <ul class="list-coachs">
+                        <li>
+                            <a href="#">Ken</a>
+                        </li>
+                        <li>
+                            <a href="#">Brandon</a>
+                        </li>
+                        <li>
+                            <a href="#">Malik</a>
+                        </li>
+                        <li>
+                            <a href="#">Julie</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="carousel">
+            <h2>Articles</h2>
+            <div class="splide">
+                <div class="splide__track">
+                    {% for catarticle in catarticles %}
+                        {% for article in articles %}
+                            {% if article.category == catarticle %}
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+
+                                        <ul>
+
+                                            <li>
+                                                {% if article.ispremium == true and app.user.ispremium == false %}
+                                                    <p><img src="assets/uploads/{{article.image}}" alt="beach-volley"/>
+                                                        <div class="description-article">
+
+                                                            <p class="title-article">{{article.title}}</p>
+
+                                                            <p class="description-text">{{article.description}}</p>
+                                                            <p class="authors">{{article.user}}</p>
+                                                        </div>
+                                                    </p>
+                                                {% else %}
+                                                    <a href="{{ path('article', {'slug' : article.slug}) }} "><img src="assets/uploads/{{article.image}}" alt="beach-volley"/>
+                                                        <div class="description-article">
+
+                                                            <p class="title-article">{{article.title}}</p>
+
+                                                            <p class="description-text">{{article.description}}</p>
+                                                            <p class="authors">{{article.user}}</p>
+                                                        </div>
+                                                    </a>
+
+                                                </li>
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {# </li> #}
+
+                {# <li class="splide__slide">
+
+                    <ul>
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/sissy.png')}}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/madison-lavern-UGiAFwbxQBI-unsplash.jpg')}}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/consommermieux.jpg')}}" alt="beach-volley"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/cordeasauter.jpg')}}" alt="Climb moutain"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/cordeasauter.jpg')}}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, quidem nihil praesentium vero tenetur, magni numquam eaque magnam doloremque repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="{{asset('assets/img/cordeasauter.jpg')}}" alt="basketball-court"/>
+                                <div class="description-article">
+                                    <p class="title-article">Titre de l'article</p>
+                                    <p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sint consequatur aperiam? Libero est commodi autem voluptate, repellat consectetur iste.</p>
+                                    <p class="authors">Auteurs</p>
+                                </div>
+                            </a>
+                        </li> 
+                    </ul>
+                </li> #}
+            </div>
+        </div>
+    </section>
+
+</main>
+{% endblock %}
+{% block script %}
+<script src="{{ asset('assets/js/splide-3.6.9/dist/js/splide.min.js') }}"></script>
+<script src="{{ asset('assets/js/script-articles.js') }}"></script>
+{% endblock %}
