@@ -1,20 +1,107 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
-
+{% block stylesheetsperso %}
+	<link href="{{ asset('assets/css/inscription_form.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block body %}
-    <h1>S'inscrire</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.firstname) }}
-        {{ form_row(registrationForm.lastname) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+   <center>
+      <fieldset>
+        <form>
+          <h1>Inscription</h1>
+          <hr>
+          <table>
+            <tr>
+              <td>Nom :</td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Merci d'indiquer votre nom"
+                  size="100"
+                  id="Nom"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td>Prénom :</td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Merci d'indiquer votre prénom"
+                  size="100"
+                  id="Prénom"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td>Adresse mail :</td>
+              <td>
+                <input
+                  type="email"
+                  placeholder="Merci d'indiquer votre e-mail"
+                  size="100"
+                  id="email"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td>Pseudo :</td>
+              <td>
+                <input
+                  type="text"
+                  id="Pseudo"
+                  placeholder="Le pseudo que vous souhaiteriez utilisé"
+                  size="100"
+                  id="pseudo"
+                  minlength="8"
+                  maxlength="24"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td>Mot de passe :
+                  (8 to 26 characters)
+              </td>
+              <td>
+                <input
+                  type="password"
+                  placeholder="Entrez votre mot de passe"
+                  size="100"
+                  id="password"
+                  minlength="8"
+                  maxlength="26"
+                  onkeyup="check();"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td>Confirmez votre mot de passe :</td>
+              <td>
+                <input
+                  type="password"
+                  placeholder="Confirmez votre mot de passe"
+                  size="100"
+                  id="confirm_password"
+                  minlength="8"
+                  maxlength="26"
+                  onkeyup="check();"
+                  required
+                /><br /><br />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="2"><input type="submit" id="submit" name="" value="S'inscrire !" /></td>
+            </tr>
+          </table>
+        </form>
+      </fieldset>
+    </center>
 {% endblock %}
