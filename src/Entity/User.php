@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -52,27 +53,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_premium = false;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="user")
-     */
-    private $articles;
+    private $ispremium = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $profile_pic;
+    private $profilepic;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ForumTopic::class, mappedBy="user")
+     */
+    private $forumTopics;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ForumPost::class, mappedBy="user")
+     */
+    private $topic;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="user")
+     */
+    private $articles;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $iscoach = false;
+
     public function __construct()
     {
+        
+        $this->forumTopics = new ArrayCollection();
+        $this->topic = new ArrayCollection();
         $this->articles = new ArrayCollection();
     }
+
+    
 
     public function getId(): ?int
     {
@@ -89,6 +111,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getUserName();
     }
 
     /**
@@ -170,12 +197,93 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getIsPremium(): ?bool
     {
-        return $this->is_premium;
+        return $this->ispremium;
     }
 
-    public function setIsPremium(bool $is_premium): self
+    public function setIsPremium(bool $ispremium): self
     {
-        $this->is_premium = $is_premium;
+        $this->ispremium = $ispremium;
+
+        return $this;
+    }
+
+    public function getProfilePic(): ?string
+    {
+        return $this->profilepic;
+    }
+
+    public function setProfilePic(?string $profilepic): self
+    {
+        $this->profilepic = $profilepic;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ForumTopic[]
+     */
+    public function getForumTopics(): Collection
+    {
+        return $this->forumTopics;
+    }
+
+    public function addForumTopic(ForumTopic $forumTopic): self
+    {
+        if (!$this->forumTopics->contains($forumTopic)) {
+            $this->forumTopics[] = $forumTopic;
+            $forumTopic->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeForumTopic(ForumTopic $forumTopic): self
+    {
+        if ($this->forumTopics->removeElement($forumTopic)) {
+            $forumTopic->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ForumPost[]
+     */
+    public function getTopic(): Collection
+    {
+        return $this->topic;
+    }
+
+    public function addTopic(ForumPost $topic): self
+    {
+        if (!$this->topic->contains($topic)) {
+            $this->topic[] = $topic;
+            $topic->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTopic(ForumPost $topic): self
+    {
+        if ($this->topic->removeElement($topic)) {
+            // set the owning side to null (unless already changed)
+            if ($topic->getUser() === $this) {
+                $topic->setUser(null);
+            }
+        }
 
         return $this;
     }
@@ -192,7 +300,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->addUser($this);
+            $article->setUser($this);
         }
 
         return $this;
@@ -201,32 +309,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeArticle(Article $article): self
     {
         if ($this->articles->removeElement($article)) {
-            $article->removeUser($this);
+            // set the owning side to null (unless already changed)
+            if ($article->getUser() === $this) {
+                $article->setUser(null);
+            }
         }
 
         return $this;
     }
 
-    public function getProfilePic(): ?string
+    public function getIscoach(): ?bool
     {
-        return $this->profile_pic;
+        return $this->iscoach;
     }
 
-    public function setProfilePic(?string $profile_pic): self
+    public function setIscoach(bool $iscoach): self
     {
-        $this->profile_pic = $profile_pic;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
+        $this->iscoach = $iscoach;
 
         return $this;
     }

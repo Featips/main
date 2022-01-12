@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,34 +39,33 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_premium;
+    private $ispremium = false;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $created_at;
+    private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="articles")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
      */
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Program::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=Program::class, inversedBy="articles")
      */
     private $program;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      */
     private $user;
 
-    public function __construct()
-    {
-        $this->category = new ArrayCollection();
-        $this->program = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -126,96 +122,72 @@ class Article
 
     public function getIsPremium(): ?bool
     {
-        return $this->is_premium;
+        return $this->ispremium;
     }
 
-    public function setIsPremium(bool $is_premium): self
+    public function setIsPremium(bool $ispremium): self
     {
-        $this->is_premium = $is_premium;
+        $this->ispremium = $ispremium;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getImage(): ?string
     {
-        return $this->created_at;
+        return $this->image;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    public function setImage(?string $image): self
     {
-        $this->created_at = $created_at;
+        $this->image = $image;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategory(): Collection
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategory(?Category $category): self
     {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-        }
+        $this->category = $category;
 
         return $this;
     }
 
-    public function removeCategory(Category $category): self
-    {
-        $this->category->removeElement($category);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Program[]
-     */
-    public function getProgram(): Collection
+    public function getProgram(): ?Program
     {
         return $this->program;
     }
 
-    public function addProgram(Program $program): self
+    public function setProgram(?Program $program): self
     {
-        if (!$this->program->contains($program)) {
-            $this->program[] = $program;
-        }
+        $this->program = $program;
 
         return $this;
     }
 
-    public function removeProgram(Program $program): self
-    {
-        $this->program->removeElement($program);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function setUser(?User $user): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        $this->user->removeElement($user);
+        $this->user = $user;
 
         return $this;
     }

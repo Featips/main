@@ -4,8 +4,14 @@
 
 {% block body %}
 
-    <h2>contactez nous !</h2>
+Contactez nous au 08.25.53.67.55
+(prix d'un appel local) 
+<br>
+Adresse 666 rue louis loucheur 69009 Lyon
 
+{# 
+    <h2>contactez nous !</h2>
+{{ form_start(contactForm) }}
     {% if app.user %}
         {{app.user.firstname}}
         <br>
@@ -13,7 +19,7 @@
         <br>
         {{app.user.email}}
     {% else %}
-        {{ form_start(contactForm) }}
+        
         {{ form_row(contactForm.firstname) }}
         {{ form_row(contactForm.lastname) }}
         {{ form_row(contactForm.email) }}
@@ -22,6 +28,6 @@
 
         <button type="submit" class="btn">Envoyer
         </button>
-        {{ form_end(contactForm) }}
+        {{ form_end(contactForm) }} #}
 
 {% endblock %}

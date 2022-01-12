@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{topic.title}}
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+		<div class="example-wrapper">
+			<h2>{{ topic.title }}</h2>
+			<p>{{topic.content}}</p>
+
+
+			<ul>
+				{% for post in posts %}
+
+
+					<li>{{ post.content }}</li>
+
+				{% endfor %}
+			</ul>
+
+			<div>
+				{# <button>nouveau</button> #}
+				{{ form_start(Postform) }}
+				{{ form_row(Postform.content) }}
+				<button type="submit" class="btn">Envoyer</button>
+				{{ form_end(Postform) }}
+			</div>
+
+		</div>
+	{% else %}
+
+		<h2>
+			Veuillez vous connecter pour accéder au forum
+		</h2>
+
+	{% endif %}
+{% endblock %}
